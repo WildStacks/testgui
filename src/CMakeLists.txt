@@ -74,41 +74,41 @@ if(APPLE)
     list(APPEND RESOURCES ${ICON})
 endif()
 
-set(monero_wallet_gui_sources
+set(wildstacks_wallet_gui_sources
     ${SOURCE_FILES}
     ${PASS_STRENGTH_FILES}
     ${RESOURCES}
 )
 
 if(NOT ANDROID)
-    add_executable(monero-wallet-gui ${EXECUTABLE_FLAG} ${monero_wallet_gui_sources})
+    add_executable(wildstacks-wallet-gui ${EXECUTABLE_FLAG} ${wildstacks_wallet_gui_sources})
 else()
-    add_library(monero-wallet-gui SHARED ${monero_wallet_gui_sources})
-    set_target_properties(monero-wallet-gui PROPERTIES COMPILE_DEFINITIONS "ANDROID")
+    add_library(wildstacks-wallet-gui SHARED ${wildstacks_wallet_gui_sources})
+    set_target_properties(wildstacks-wallet-gui PROPERTIES COMPILE_DEFINITIONS "ANDROID")
 endif()
 
-set_target_properties(monero-wallet-gui PROPERTIES
+set_target_properties(wildstacks-wallet-gui PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
     MACOSX_BUNDLE TRUE
     MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/share/Info.plist"
 )
 
 # OpenGL
-target_include_directories(monero-wallet-gui PUBLIC ${OPENGL_INCLUDE_DIR})
+target_include_directories(wildstacks-wallet-gui PUBLIC ${OPENGL_INCLUDE_DIR})
 message(STATUS "OpenGL: include dir at ${OPENGL_INCLUDE_DIR}")
 message(STATUS "OpenGL: libraries at ${OPENGL_LIBRARIES}")
 
-target_include_directories(monero-wallet-gui PUBLIC ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+target_include_directories(wildstacks-wallet-gui PUBLIC ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
 file(GLOB_RECURSE SRC_SOURCES *.cpp)
 file(GLOB_RECURSE SRC_HEADERS *.h)
 
-target_include_directories(monero-wallet-gui PUBLIC
-	${CMAKE_SOURCE_DIR}/monero/include
-    ${CMAKE_SOURCE_DIR}/monero/src
-    ${CMAKE_SOURCE_DIR}/monero/external/easylogging++
-    ${CMAKE_SOURCE_DIR}/monero/contrib/epee/include
-    ${CMAKE_SOURCE_DIR}/monero/external/qrcodegen
+target_include_directories(wildstacks-wallet-gui PUBLIC
+	${CMAKE_SOURCE_DIR}/wildstacks/include
+    ${CMAKE_SOURCE_DIR}/wildstacks/src
+    ${CMAKE_SOURCE_DIR}/wildstacks/external/easylogging++
+    ${CMAKE_SOURCE_DIR}/wildstacks/contrib/epee/include
+    ${CMAKE_SOURCE_DIR}/wildstacks/external/qrcodegen
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}/daemon
 	${CMAKE_CURRENT_SOURCE_DIR}/libwalletqt
@@ -120,7 +120,7 @@ target_include_directories(monero-wallet-gui PUBLIC
     ${OPENSSL_INCLUDE_DIR}
 )
 
-target_compile_definitions(monero-wallet-gui
+target_compile_definitions(wildstacks-wallet-gui
 	PUBLIC
 	${Qt5Widgets_DEFINITIONS}
     ${Qt5Qml_DEFINITIONS}
@@ -131,12 +131,12 @@ if(APPLE)
         execute_process(COMMAND brew --prefix icu4c OUTPUT_VARIABLE ICU_ROOT OUTPUT_STRIP_TRAILING_WHITESPACE)
     endif()
     find_package(ICU REQUIRED COMPONENTS data i18n uc)
-    target_link_directories(monero-wallet-gui PRIVATE ${ICU_ROOT}/lib)
+    target_link_directories(wildstacks-wallet-gui PRIVATE ${ICU_ROOT}/lib)
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
-target_link_libraries(monero-wallet-gui
+target_link_libraries(wildstacks-wallet-gui
     epee
     wallet_api
     qrcodegen
@@ -151,13 +151,13 @@ target_link_libraries(monero-wallet-gui
 )
 
 if(X11_FOUND)
-    target_link_libraries(monero-wallet-gui ${X11_LIBRARIES})
+    target_link_libraries(wildstacks-wallet-gui ${X11_LIBRARIES})
 endif()
 
 if(WITH_SCANNER)
-    target_link_libraries(monero-wallet-gui qrscanner)
+    target_link_libraries(wildstacks-wallet-gui qrscanner)
     if(LINUX AND NOT ANDROID)
-        target_link_libraries(monero-wallet-gui
+        target_link_libraries(wildstacks-wallet-gui
             jpeg
             v4l2
             v4lconvert
@@ -166,10 +166,10 @@ if(WITH_SCANNER)
     endif()
 endif()
 
-add_custom_command(TARGET monero-wallet-gui POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:daemon> $<TARGET_FILE_DIR:monero-wallet-gui>)
+add_custom_command(TARGET wildstacks-wallet-gui POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:daemon> $<TARGET_FILE_DIR:wildstacks-wallet-gui>)
 
 include(Deploy)
 
-install(TARGETS monero-wallet-gui
+install(TARGETS wildstacks-wallet-gui
     DESTINATION bin
 )

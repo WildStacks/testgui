@@ -79,7 +79,7 @@ public slots:
 private:
     std::unique_ptr<QProcess> m_daemon;
     QMutex m_daemonMutex;
-    QString m_monerod;
+    QString m_wildstacksd;
     bool m_app_exit = false;
     bool m_noSync = false;
 

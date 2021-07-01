@@ -50,13 +50,13 @@ namespace {
 
 bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const QString &dataDir, const QString &bootstrapNodeAddress, bool noSync /* = false*/, bool pruneBlockchain /* = false*/)
 {
-    if (!QFileInfo(m_monerod).isFile())
+    if (!QFileInfo(m_wildstacksd).isFile())
     {
-        emit daemonStartFailure("\"" + QDir::toNativeSeparators(m_monerod) + "\" " + tr("executable is missing"));
+        emit daemonStartFailure("\"" + QDir::toNativeSeparators(m_wildstacksd) + "\" " + tr("executable is missing"));
         return false;
     }
 
-    // prepare command line arguments and pass to monerod
+    // prepare command line arguments and pass to wildstacksd
     QStringList arguments;
 
     // Start daemon with --detach flag on non-windows platforms
@@ -106,7 +106,7 @@ bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const
         arguments << "--max-concurrency" << QString::number(concurrency);
     }
 
-    qDebug() << "starting monerod " + m_monerod;
+    qDebug() << "starting wildstacksd " + m_wildstacksd;
     qDebug() << "With command line arguments " << arguments;
 
     QMutexLocker locker(&m_daemonMutex);
@@ -117,8 +117,8 @@ bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const
     connect(m_daemon.get(), SIGNAL(readyReadStandardOutput()), this, SLOT(printOutput()));
     connect(m_daemon.get(), SIGNAL(readyReadStandardError()), this, SLOT(printError()));
 
-    // Start monerod
-    bool started = m_daemon->startDetached(m_monerod, arguments);
+    // Start wildstacksd
+    bool started = m_daemon->startDetached(m_wildstacksd, arguments);
 
     // add state changed listener
     connect(m_daemon.get(), SIGNAL(stateChanged(QProcess::ProcessState)), this, SLOT(stateChanged(QProcess::ProcessState)));
@@ -187,9 +187,9 @@ bool DaemonManager::stopWatcher(NetworkType::Type nettype) const
             if(counter >= 5) {
                 qDebug() << "Killing it! ";
 #ifdef Q_OS_WIN
-                QProcess::execute("taskkill",  {"/F", "/IM", "monerod.exe"});
+                QProcess::execute("taskkill",  {"/F", "/IM", "wildstacksd.exe"});
 #else
-                QProcess::execute("pkill", {"monerod"});
+                QProcess::execute("pkill", {"wildstacksd"});
 #endif
             }
 
@@ -270,7 +270,7 @@ bool DaemonManager::sendCommand(const QStringList &cmd, NetworkType::Type nettyp
     qDebug() << "sending external cmd: " << external_cmd;
 
 
-    p.start(m_monerod, external_cmd);
+    p.start(m_wildstacksd, external_cmd);
 
     bool started = p.waitForFinished(-1);
     message = p.readAllStandardOutput();
@@ -342,14 +342,14 @@ DaemonManager::DaemonManager(QObject *parent)
     , m_scheduler(this)
 {
 
-    // Platform depetent path to monerod
+    // Platform depetent path to wildstacksd
 #ifdef Q_OS_WIN
-    m_monerod = QApplication::applicationDirPath() + "/monerod.exe";
+    m_wildstacksd = QApplication::applicationDirPath() + "/wildstacksd.exe";
 #elif defined(Q_OS_UNIX)
-    m_monerod = QApplication::applicationDirPath() + "/monerod";
+    m_wildstacksd = QApplication::applicationDirPath() + "/wildstacksd";
 #endif
 
-    if (m_monerod.length() == 0) {
+    if (m_wildstacksd.length() == 0) {
         qCritical() << "no daemon binary defined for current platform";
     }
 }

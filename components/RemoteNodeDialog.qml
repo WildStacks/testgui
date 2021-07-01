@@ -30,9 +30,9 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
-import "." as MoneroComponents
+import "." as WildstacksComponents
 
-MoneroComponents.Dialog {
+WildstacksComponents.Dialog {
     id: root
     title: (editMode ? qsTr("Edit remote node") : qsTr("Add remote node")) + translationManager.emptyString
 
@@ -82,7 +82,7 @@ MoneroComponents.Dialog {
         root.success = false;
     }
 
-    MoneroComponents.RemoteNodeEdit {
+    WildstacksComponents.RemoteNodeEdit {
         id: remoteNodeAddress
         Layout.fillWidth: true
         placeholderFontSize: 15
@@ -95,7 +95,7 @@ MoneroComponents.Dialog {
         Layout.fillWidth: true
         spacing: 32
 
-        MoneroComponents.LineEdit {
+        WildstacksComponents.LineEdit {
             id: daemonUsername
             Layout.fillWidth: true
             Layout.minimumWidth: 220
@@ -106,7 +106,7 @@ MoneroComponents.Dialog {
             fontSize: 15
         }
 
-        MoneroComponents.LineEdit {
+        WildstacksComponents.LineEdit {
             id: daemonPassword
             Layout.fillWidth: true
             Layout.minimumWidth: 220
@@ -119,7 +119,7 @@ MoneroComponents.Dialog {
         }
     }
 
-    MoneroComponents.CheckBox {
+    WildstacksComponents.CheckBox {
         id: setTrustedDaemonCheckBox
         activeFocusOnTab: true
         text: qsTr("Mark as Trusted Daemon") + translationManager.emptyString
@@ -129,7 +129,7 @@ MoneroComponents.Dialog {
         Layout.alignment: Qt.AlignRight
         spacing: parent.spacing
 
-        MoneroComponents.StandardButton {
+        WildstacksComponents.StandardButton {
             activeFocusOnTab: true
             fontBold: false
             primary: false
@@ -138,7 +138,7 @@ MoneroComponents.Dialog {
             onClicked: root.close()
         }
 
-        MoneroComponents.StandardButton {
+        WildstacksComponents.StandardButton {
             activeFocusOnTab: true
             fontBold: false
             enabled: remoteNodeAddress.getAddress() != ""

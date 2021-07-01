@@ -1,11 +1,11 @@
 import QtQuick 2.9
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 TextEdit {
-    color: MoneroComponents.Style.defaultFontColor
-    font.family: MoneroComponents.Style.fontRegular.name
-    selectionColor: MoneroComponents.Style.textSelectionColor
+    color: WildstacksComponents.Style.defaultFontColor
+    font.family: WildstacksComponents.Style.fontRegular.name
+    selectionColor: WildstacksComponents.Style.textSelectionColor
     wrapMode: Text.Wrap
     readOnly: true
     selectByMouse: true

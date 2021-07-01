@@ -26,7 +26,7 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 import QtQuick 2.9
 import QtQuick.XmlListModel 2.0
@@ -42,7 +42,7 @@ Drawer {
     y: titleBar.height
 
     background: Rectangle {
-        color: MoneroComponents.Style.blackTheme ? "#0d0d0d" : "white"
+        color: WildstacksComponents.Style.blackTheme ? "#0d0d0d" : "white"
         width: parent.width
     }
 
@@ -83,12 +83,12 @@ Drawer {
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     anchors.left: parent.left
                     anchors.leftMargin: 30
                     font.bold: true
                     font.pixelSize: 14
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WildstacksComponents.Style.defaultFontColor
                     text: display_name
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -97,8 +97,8 @@ Drawer {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    color: MoneroComponents.Style.dividerColor
-                    opacity: MoneroComponents.Style.dividerOpacity
+                    color: WildstacksComponents.Style.dividerColor
+                    opacity: WildstacksComponents.Style.dividerOpacity
                     height: 1
                 }
 

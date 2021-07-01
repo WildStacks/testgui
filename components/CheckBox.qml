@@ -30,8 +30,8 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WildstacksComponents
+import "effects/" as WildstacksEffects
 
 Item {
     id: checkBox
@@ -82,22 +82,22 @@ Item {
                 visible: checkBox.border
                 anchors.fill: parent
                 radius: 3
-                color: checkBox.enabled ? "transparent" : MoneroComponents.Style.inputBoxBackgroundDisabled
+                color: checkBox.enabled ? "transparent" : WildstacksComponents.Style.inputBoxBackgroundDisabled
                 border.color:
                     if (checkBox.activeFocus) {
-                        return MoneroComponents.Style.inputBorderColorActive;
+                        return WildstacksComponents.Style.inputBorderColorActive;
                     } else {
-                        return MoneroComponents.Style.inputBorderColorInActive;
+                        return WildstacksComponents.Style.inputBorderColorInActive;
                     }
             }
 
-            MoneroEffects.ImageMask {
+            WildstacksEffects.ImageMask {
                 id: img
                 visible: checkBox.checked || checkBox.uncheckedIcon != ""
                 anchors.centerIn: parent
                 width: checkBox.imgWidth
                 height: checkBox.imgHeight
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 fontAwesomeFallbackIcon: checkBox.fontAwesomeIcons ? getIcon() : FontAwesome.plus
                 fontAwesomeFallbackSize: 14
                 image: checkBox.fontAwesomeIcons ? "" : getIcon()
@@ -110,11 +110,11 @@ Item {
             }
         }
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: label
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WildstacksComponents.Style.fontRegular.name
             font.pixelSize: checkBox.fontSize
-            color: MoneroComponents.Style.defaultFontColor
+            color: WildstacksComponents.Style.defaultFontColor
             textFormat: Text.RichText
             wrapMode: Text.NoWrap
             visible: text != ""

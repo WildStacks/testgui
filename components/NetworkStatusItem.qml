@@ -30,8 +30,8 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
-import moneroComponents.Wallet 1.0
-import "../components" as MoneroComponents
+import wildstacksComponents.Wallet 1.0
+import "../components" as WildstacksComponents
 
 Rectangle {
     id: item
@@ -118,30 +118,30 @@ Rectangle {
             height: 40
             width: 260
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 id: statusText
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.topMargin: 0
-                font.family: MoneroComponents.Style.fontMedium.name
+                font.family: WildstacksComponents.Style.fontMedium.name
                 font.bold: true
                 font.pixelSize: 13
-                color: MoneroComponents.Style.dimmedFontColor
-                opacity: MoneroComponents.Style.blackTheme ? 0.65 : 0.5
+                color: WildstacksComponents.Style.dimmedFontColor
+                opacity: WildstacksComponents.Style.blackTheme ? 0.65 : 0.5
                 text: qsTr("Network status") + translationManager.emptyString
                 themeTransition: false
             }
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 id: statusTextVal
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.topMargin: 14
-                font.family: MoneroComponents.Style.fontMedium.name
+                font.family: WildstacksComponents.Style.fontMedium.name
                 font.pixelSize: 20
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 text: getConnectionStatusString(item.connected) + translationManager.emptyString
-                opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.7
+                opacity: WildstacksComponents.Style.blackTheme ? 1.0 : 0.7
                 themeTransition: false
 
                 MouseArea {
@@ -163,7 +163,7 @@ Rectangle {
                 anchors.left: statusTextVal.right
                 anchors.leftMargin: 16
                 anchors.verticalCenter: parent.verticalCenter
-                color: refreshMouseArea.containsMouse ?  MoneroComponents.Style.dimmedFontColor : MoneroComponents.Style.defaultFontColor
+                color: refreshMouseArea.containsMouse ?  WildstacksComponents.Style.dimmedFontColor : WildstacksComponents.Style.defaultFontColor
                 font.family: FontAwesome.fontFamilySolid
                 font.pixelSize: 24
                 font.styleName: "Solid"

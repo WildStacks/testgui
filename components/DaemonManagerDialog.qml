@@ -33,7 +33,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 Window {
     id: root
@@ -52,7 +52,7 @@ Window {
     // TODO: implement without hardcoding sizes
     width: 480
     height: 200
-    color: MoneroComponents.Style.middlePanelBackgroundColor
+    color: WildstacksComponents.Style.middlePanelBackgroundColor
 
     // Make window draggable
     MouseArea {
@@ -90,14 +90,14 @@ Window {
                 }
             }
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 text: qsTr("Starting local node in %1 seconds").arg(countDown) + translationManager.emptyString;
                 font.pixelSize: 18
                 Layout.alignment: Qt.AlignHCenter
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 themeTransition: false
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
             }
 
         }
@@ -107,7 +107,7 @@ Window {
             spacing: 60
             Layout.alignment: Qt.AlignHCenter
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 id: okButton
                 visible:false
                 fontSize: 14
@@ -121,7 +121,7 @@ Window {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 id: cancelButton
                 fontSize: 14
                 text: qsTr("Use custom settings") + translationManager.emptyString

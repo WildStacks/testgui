@@ -31,7 +31,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
-import "." as MoneroComponents
+import "." as WildstacksComponents
 
 Rectangle {
     property alias text: tooltip.text
@@ -48,7 +48,7 @@ Rectangle {
     Text {
         id: icon
         visible: tooltipIconVisible
-        color: MoneroComponents.Style.orange
+        color: WildstacksComponents.Style.orange
         font.family: FontAwesome.fontFamily
         font.pixelSize: 10
         font.styleName: "Regular"
@@ -72,9 +72,9 @@ Rectangle {
         height: tooltip.height + 20
 
         background: Rectangle {
-            border.color: MoneroComponents.Style.buttonInlineBackgroundColor
+            border.color: WildstacksComponents.Style.buttonInlineBackgroundColor
             border.width: 1
-            color: MoneroComponents.Style.titleBarBackgroundGradientStart
+            color: WildstacksComponents.Style.titleBarBackgroundGradientStart
             radius: 4
         }
         closePolicy: Popup.NoAutoClose
@@ -99,8 +99,8 @@ Rectangle {
                 id: tooltip
                 Layout.maximumWidth: 350
                 width: contentWidth > Layout.maximumWidth ? Layout.maximumWidth : contentWidth
-                color: MoneroComponents.Style.defaultFontColor
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: WildstacksComponents.Style.defaultFontColor
+                font.family: WildstacksComponents.Style.fontRegular.name
                 font.pixelSize: 12
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap

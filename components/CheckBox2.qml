@@ -32,8 +32,8 @@ import QtGraphicalEffects 1.0
 import FontAwesome 1.0
 
 import "." 1.0
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WildstacksComponents
+import "effects/" as WildstacksEffects
 
 RowLayout {
     id: checkBox
@@ -58,7 +58,7 @@ RowLayout {
             width: (label.width + indicatorRect.width + checkBox.textMargin)
             color: "transparent"
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 id: label
                 font.family: Style.fontLight.name
                 font.pixelSize: checkBox.fontSize
@@ -77,18 +77,18 @@ RowLayout {
                 color: "transparent"
                 rotation: checkBox.checked ? 180  : 0
 
-                MoneroEffects.ImageMask {
+                WildstacksEffects.ImageMask {
                     id: indicatorImage
                     anchors.centerIn: parent
                     width: 12
                     height: 8
                     image: "qrc:///images/whiteDropIndicator.png"
-                    color: MoneroComponents.Style.defaultFontColor
-                    opacity: MoneroComponents.Style.blackTheme ? 1 : 0.75
+                    color: WildstacksComponents.Style.defaultFontColor
+                    opacity: WildstacksComponents.Style.blackTheme ? 1 : 0.75
                     fontAwesomeFallbackIcon: FontAwesome.arrowDown
                     fontAwesomeFallbackSize: 14
 
-                    MoneroEffects.ColorTransition {
+                    WildstacksEffects.ColorTransition {
                         targetObj: indicatorImage
                         blackColor: "white"
                         whiteColor: "black"

@@ -1,7 +1,7 @@
 import QtQuick 2.9
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WildstacksComponents
+import "effects/" as WildstacksEffects
 
 Text {
     // When using this component, please note that if you use a color different
@@ -16,21 +16,21 @@ Text {
     property alias tooltipLeft: tooltip.tooltipLeft
     property alias tooltipIconVisible: tooltip.tooltipIconVisible
     property alias tooltipPopup: tooltip.tooltipPopup
-    font.family: MoneroComponents.Style.fontMedium.name
+    font.family: WildstacksComponents.Style.fontMedium.name
     font.bold: false
     font.pixelSize: 14
     textFormat: Text.PlainText
 
-    MoneroEffects.ColorTransition {
+    WildstacksEffects.ColorTransition {
         enabled: root.themeTransition
         themeTransition: root.themeTransition
         targetObj: root
         duration: 750
-        blackColor: root.themeTransitionBlackColor !== "" ? root.themeTransitionBlackColor : MoneroComponents.Style._b_defaultFontColor
-        whiteColor: root.themeTransitionWhiteColor !== "" ? root.themeTransitionWhiteColor : MoneroComponents.Style._w_defaultFontColor
+        blackColor: root.themeTransitionBlackColor !== "" ? root.themeTransitionBlackColor : WildstacksComponents.Style._b_defaultFontColor
+        whiteColor: root.themeTransitionWhiteColor !== "" ? root.themeTransitionWhiteColor : WildstacksComponents.Style._w_defaultFontColor
     }
 
-    MoneroComponents.Tooltip {
+    WildstacksComponents.Tooltip {
         id: tooltip
         anchors.top: parent.top
         anchors.left: tooltipIconVisible ? parent.right : parent.left

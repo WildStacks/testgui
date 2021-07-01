@@ -365,7 +365,7 @@ Root: HKCR; Subkey: "wildstacks\shell\open\command"; ValueType: "string"; ValueD
 
 ; Configure a custom URI scheme: Links starting with "wildstacksseed:" will start the GUI wallet exe with the URI as command-line parameter
 ; Used to easily hand over custom seed node info to the wallet, with an URI of the form "wildstacksseed://a.b.c.d:port"
-Root: HKCR; Subkey: "moneroseedseed"; ValueType: "string"; ValueData: "URL:WildStacks Seed Node Protocol"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "moneroseed"; ValueType: "string"; ValueName: "URL Protocol"; ValueData: ""
-Root: HKCR; Subkey: "moneroseed\DefaultIcon"; ValueType: "string"; ValueData: "{app}\wildstacks-wallet-gui.exe,0"
-Root: HKCR; Subkey: "moneroseed\shell\open\command"; ValueType: "string"; ValueData: """{app}\wildstacks-wallet-gui.exe"" ""%1"""
+Root: HKCR; Subkey: "wildstacksseedseed"; ValueType: "string"; ValueData: "URL:WildStacks Seed Node Protocol"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "wildstacksseed"; ValueType: "string"; ValueName: "URL Protocol"; ValueData: ""
+Root: HKCR; Subkey: "wildstacksseed\DefaultIcon"; ValueType: "string"; ValueData: "{app}\wildstacks-wallet-gui.exe,0"
+Root: HKCR; Subkey: "wildstacksseed\shell\open\command"; ValueType: "string"; ValueData: """{app}\wildstacks-wallet-gui.exe"" ""%1"""

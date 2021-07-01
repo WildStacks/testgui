@@ -31,14 +31,14 @@ import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WildstacksComponents
+import "effects/" as WildstacksEffects
 
 ColumnLayout {
     id: remoteNodeList
     spacing: 20
 
-    MoneroComponents.CheckBox {
+    WildstacksComponents.CheckBox {
         border: false
         checkedIcon: FontAwesome.minusCircle
         uncheckedIcon: FontAwesome.plusCircle
@@ -59,20 +59,20 @@ ColumnLayout {
             Rectangle {
                 height: 30
                 Layout.fillWidth: true
-                color: itemMouseArea.containsMouse || trustedDaemonCheckMark.labelMouseArea.containsMouse || index === remoteNodesModel.selected ? MoneroComponents.Style.titleBarButtonHoverColor : "transparent"
+                color: itemMouseArea.containsMouse || trustedDaemonCheckMark.labelMouseArea.containsMouse || index === remoteNodesModel.selected ? WildstacksComponents.Style.titleBarButtonHoverColor : "transparent"
 
                 Rectangle {
-                    color: MoneroComponents.Style.appWindowBorderColor
+                    color: WildstacksComponents.Style.appWindowBorderColor
                     anchors.right: parent.right
                     anchors.left: parent.left
                     anchors.top: parent.top
                     height: 1
                     visible: index > 0
 
-                    MoneroEffects.ColorTransition {
+                    WildstacksEffects.ColorTransition {
                         targetObj: parent
-                        blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                        whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                        blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+                        whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
                     }
                 }
 
@@ -82,9 +82,9 @@ ColumnLayout {
                     color: "transparent"
                     property var trusted: remoteNodesModel.get(index).trusted
 
-                    MoneroComponents.TextPlain {
+                    WildstacksComponents.TextPlain {
                         id: addressText
-                        color: index === remoteNodesModel.selected ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: index === remoteNodesModel.selected ? WildstacksComponents.Style.defaultFontColor : WildstacksComponents.Style.dimmedFontColor
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
                         anchors.leftMargin: 6
@@ -93,7 +93,7 @@ ColumnLayout {
                         themeTransition: false
                     }
 
-                    MoneroComponents.Label {
+                    WildstacksComponents.Label {
                         id: trustedDaemonCheckMark
                         anchors.left: addressText.right
                         anchors.leftMargin: 6
@@ -101,7 +101,7 @@ ColumnLayout {
                         z: itemMouseArea.z + 1
                         fontSize: 16
                         fontFamily: FontAwesome.fontFamilySolid
-                        fontColor: index === remoteNodesModel.selected ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        fontColor: index === remoteNodesModel.selected ? WildstacksComponents.Style.defaultFontColor : WildstacksComponents.Style.dimmedFontColor
                         styleName: "Solid"
                         visible: trusted
                         text: FontAwesome.shieldAlt
@@ -125,7 +125,7 @@ ColumnLayout {
                     height: 30
                     spacing: 10
 
-                    MoneroComponents.InlineButton {
+                    WildstacksComponents.InlineButton {
                         buttonColor: "transparent"
                         fontFamily: FontAwesome.fontFamily
                         fontPixelSize: 18
@@ -137,7 +137,7 @@ ColumnLayout {
                         })
                     }
 
-                    MoneroComponents.InlineButton {
+                    WildstacksComponents.InlineButton {
                         buttonColor: "transparent"
                         fontFamily: FontAwesome.fontFamily
                         text: FontAwesome.times

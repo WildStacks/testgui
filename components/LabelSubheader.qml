@@ -28,8 +28,8 @@
 
 import QtQuick 2.9
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WildstacksComponents
+import "../components/effects/" as WildstacksEffects
 
 Label {
     id: item
@@ -41,12 +41,12 @@ Label {
         anchors.left: parent.left
         anchors.right: parent.right
         height: 2
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WildstacksComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+            whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
         }
     }
 }

@@ -32,14 +32,14 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 Rectangle {
     id: root
-    color: MoneroComponents.Style.blackTheme ? "black" : "white"
+    color: WildstacksComponents.Style.blackTheme ? "black" : "white"
     visible: false
     radius: 10
-    border.color: MoneroComponents.Style.blackTheme ? Qt.rgba(255, 255, 255, 0.25) : Qt.rgba(0, 0, 0, 0.25)
+    border.color: WildstacksComponents.Style.blackTheme ? Qt.rgba(255, 255, 255, 0.25) : Qt.rgba(0, 0, 0, 0.25)
     border.width: 1
     z: 11
     property alias messageText: messageTitle.text
@@ -98,7 +98,7 @@ Rectangle {
         }
 
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: messageTitle
             text: qsTr("Please wait...") + translationManager.emptyString
             font.pixelSize: 24
@@ -106,7 +106,7 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Layout.fillWidth: true
             themeTransition: false
-            color: MoneroComponents.Style.defaultFontColor
+            color: WildstacksComponents.Style.defaultFontColor
         }
     }
 }

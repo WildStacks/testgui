@@ -32,8 +32,8 @@ import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.2
 
 import FontAwesome 1.0
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WildstacksComponents
+import "effects/" as WildstacksEffects
 
 Rectangle {
     id: root
@@ -72,16 +72,16 @@ Rectangle {
         }
     ]
 
-    MoneroEffects.GradientBackground {
+    WildstacksEffects.GradientBackground {
         anchors.fill: parent
         duration: 300
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.titleBarBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.titleBarBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_titleBarBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_titleBarBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_titleBarBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_titleBarBackgroundGradientStop
+        fallBackColor: WildstacksComponents.Style.middlePanelBackgroundColor
+        initialStartColor: WildstacksComponents.Style.titleBarBackgroundGradientStart
+        initialStopColor: WildstacksComponents.Style.titleBarBackgroundGradientStop
+        blackColorStart: WildstacksComponents.Style._b_titleBarBackgroundGradientStart
+        blackColorStop: WildstacksComponents.Style._b_titleBarBackgroundGradientStop
+        whiteColorStart: WildstacksComponents.Style._w_titleBarBackgroundGradientStart
+        whiteColorStop: WildstacksComponents.Style._w_titleBarBackgroundGradientStop
         start: Qt.point(width, 0)
         end: Qt.point(0, 0)
     }
@@ -103,14 +103,14 @@ Rectangle {
                 text: FontAwesome.signOutAlt
                 font.family: FontAwesome.fontFamilySolid
                 font.pixelSize: 16
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 font.styleName: "Solid"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 opacity: 0.75
             }
 
-            MoneroComponents.Tooltip {
+            WildstacksComponents.Tooltip {
                 id: btnCloseWalletTooltip
                 anchors.fill: parent
                 text: qsTr("Close this wallet and return to main menu") + translationManager.emptyString
@@ -121,7 +121,7 @@ Rectangle {
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
                 onEntered: {
-                    parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                    parent.color = WildstacksComponents.Style.titleBarButtonHoverColor
                     btnCloseWalletTooltip.tooltipPopup.open()
                 }
                 onExited: {
@@ -143,14 +143,14 @@ Rectangle {
                 text: FontAwesome.globe
                 font.family: FontAwesome.fontFamilySolid
                 font.pixelSize: 16
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 font.styleName: "Solid"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 opacity: 0.75
             }
 
-            MoneroComponents.Tooltip {
+            WildstacksComponents.Tooltip {
                 id: btnLanguageToggleTooltip
                 anchors.fill: parent
                 text: qsTr("Change language") + translationManager.emptyString
@@ -161,7 +161,7 @@ Rectangle {
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
                 onEntered: {
-                    parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                    parent.color = WildstacksComponents.Style.titleBarButtonHoverColor
                     btnLanguageToggleTooltip.tooltipPopup.open()
                 }
                 onExited: {
@@ -180,19 +180,19 @@ Rectangle {
 
             Text {
                 text: FontAwesome.moonO
-                font.family: MoneroComponents.Style.blackTheme ? FontAwesome.fontFamilySolid : FontAwesome.fontFamily
-                font.styleName: MoneroComponents.Style.blackTheme ? "Solid" : "Regular"
+                font.family: WildstacksComponents.Style.blackTheme ? FontAwesome.fontFamilySolid : FontAwesome.fontFamily
+                font.styleName: WildstacksComponents.Style.blackTheme ? "Solid" : "Regular"
                 font.pixelSize: 15
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 opacity: 0.75
             }
 
-            MoneroComponents.Tooltip {
+            WildstacksComponents.Tooltip {
                 id: btnSwitchThemeTooltip
                 anchors.fill: parent
-                text: MoneroComponents.Style.blackTheme ? qsTr("Switch to light theme") : qsTr("Switch to dark theme") + translationManager.emptyString
+                text: WildstacksComponents.Style.blackTheme ? qsTr("Switch to light theme") : qsTr("Switch to dark theme") + translationManager.emptyString
             }
 
             MouseArea {
@@ -200,7 +200,7 @@ Rectangle {
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
                 onEntered: {
-                    parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                    parent.color = WildstacksComponents.Style.titleBarButtonHoverColor
                     btnSwitchThemeTooltip.tooltipPopup.open()
                 }
                 onExited: {
@@ -208,7 +208,7 @@ Rectangle {
                     btnSwitchThemeTooltip.tooltipPopup.close()
                 }
                 onClicked: {
-                    MoneroComponents.Style.blackTheme = !MoneroComponents.Style.blackTheme;
+                    WildstacksComponents.Style.blackTheme = !WildstacksComponents.Style.blackTheme;
                 }
             }
         }
@@ -236,16 +236,16 @@ Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
 
-                source: MoneroComponents.Style.titleBarLogoSource
+                source: WildstacksComponents.Style.titleBarLogoSource
                 visible: {
                     if(!isOpenGL) return true;
-                    if(!MoneroComponents.Style.blackTheme) return true;
+                    if(!WildstacksComponents.Style.blackTheme) return true;
                     return false;
                 }
             }
 
             Colorize {
-                visible: isOpenGL && MoneroComponents.Style.blackTheme
+                visible: isOpenGL && WildstacksComponents.Style.blackTheme
                 anchors.fill: imgLogo
                 source: imgLogo
                 saturation: 0.0
@@ -257,7 +257,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -275,17 +275,17 @@ Rectangle {
             Layout.preferredWidth: parent.height
             Layout.preferredHeight: parent.height
 
-            MoneroEffects.ImageMask {
+            WildstacksEffects.ImageMask {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 18
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 3
                 width: 15
-                image: MoneroComponents.Style.titleBarMinimizeSource
-                color: MoneroComponents.Style.defaultFontColor
+                image: WildstacksComponents.Style.titleBarMinimizeSource
+                color: WildstacksComponents.Style.defaultFontColor
                 fontAwesomeFallbackIcon: FontAwesome.minus
                 fontAwesomeFallbackSize: 18
-                fontAwesomeFallbackOpacity: MoneroComponents.Style.blackTheme ? 0.8 : 0.6
+                fontAwesomeFallbackOpacity: WildstacksComponents.Style.blackTheme ? 0.8 : 0.6
                 opacity: 0.75
             }
 
@@ -293,7 +293,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WildstacksComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.minimizeClicked();
             }
@@ -310,7 +310,7 @@ Rectangle {
             Image {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: MoneroComponents.Style.titleBarFullscreenSource
+                source: WildstacksComponents.Style.titleBarFullscreenSource
                 sourceSize.width: 16
                 sourceSize.height: 16
                 smooth: true
@@ -324,7 +324,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WildstacksComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.maximizeClicked();
             }
@@ -337,16 +337,16 @@ Rectangle {
             Layout.preferredWidth: parent.height
             Layout.preferredHeight: parent.height
 
-            MoneroEffects.ImageMask {
+            WildstacksEffects.ImageMask {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 16
                 width: 16
-                image: MoneroComponents.Style.titleBarCloseSource
-                color: MoneroComponents.Style.defaultFontColor
+                image: WildstacksComponents.Style.titleBarCloseSource
+                color: WildstacksComponents.Style.defaultFontColor
                 fontAwesomeFallbackIcon: FontAwesome.times
                 fontAwesomeFallbackSize: 21
-                fontAwesomeFallbackOpacity: MoneroComponents.Style.blackTheme ? 0.8 : 0.6
+                fontAwesomeFallbackOpacity: WildstacksComponents.Style.blackTheme ? 0.8 : 0.6
                 opacity: 0.75
             }
 
@@ -354,7 +354,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WildstacksComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.closeClicked();
             }
@@ -366,13 +366,13 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: MoneroComponents.Style.blackTheme ? 1 : 1
-        color: MoneroComponents.Style.titleBarBackgroundBorderColor
+        height: WildstacksComponents.Style.blackTheme ? 1 : 1
+        color: WildstacksComponents.Style.titleBarBackgroundBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_titleBarBackgroundBorderColor
-            whiteColor: MoneroComponents.Style._w_titleBarBackgroundBorderColor
+            blackColor: WildstacksComponents.Style._b_titleBarBackgroundBorderColor
+            whiteColor: WildstacksComponents.Style._w_titleBarBackgroundBorderColor
         }
     }
 

@@ -27,19 +27,19 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import QtQuick 2.9
-import "../components" as MoneroComponents
-import "../components/effects" as MoneroEffects
+import "../components" as WildstacksComponents
+import "../components/effects" as WildstacksEffects
 
-MoneroEffects.ImageMask {
+WildstacksEffects.ImageMask {
     id: button
     z: 666
-    color: MoneroComponents.Style.defaultFontColor
+    color: WildstacksComponents.Style.defaultFontColor
     image: ""
 
     property alias tooltip: tooltip.text
     signal clicked(var mouse)
 
-    MoneroComponents.Tooltip {
+    WildstacksComponents.Tooltip {
         id: tooltip
         anchors.fill: parent
         tooltipLeft: true

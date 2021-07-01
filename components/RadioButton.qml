@@ -29,7 +29,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 Item {
     id: radioButton
@@ -41,8 +41,8 @@ Item {
     height: 26
     width: layout.width
     // legacy properties
-    property var checkedColor: MoneroComponents.Style.blackTheme ? "white" : "#666666"
-    property var borderColor: checked ? MoneroComponents.Style.inputBorderColorActive : MoneroComponents.Style.inputBorderColorInActive
+    property var checkedColor: WildstacksComponents.Style.blackTheme ? "white" : "#666666"
+    property var borderColor: checked ? WildstacksComponents.Style.inputBorderColorActive : WildstacksComponents.Style.inputBorderColorInActive
 
     function toggle(){
         radioButton.checked = !radioButton.checked
@@ -72,11 +72,11 @@ Item {
             }
         }
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: label
             Layout.leftMargin: 10
-            color: MoneroComponents.Style.defaultFontColor
-            font.family: MoneroComponents.Style.fontRegular.name
+            color: WildstacksComponents.Style.defaultFontColor
+            font.family: WildstacksComponents.Style.fontRegular.name
             font.pixelSize: radioButton.fontSize
             wrapMode: Text.Wrap
         }

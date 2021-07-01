@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 Item {
     id: button
@@ -40,10 +40,10 @@ Item {
     property string rightIcon: ""
     property string rightIconInactive: ""
     property color textColor: !button.enabled
-        ? MoneroComponents.Style.buttonTextColorDisabled
+        ? WildstacksComponents.Style.buttonTextColorDisabled
         : primary
-        ? MoneroComponents.Style.buttonTextColor
-        : MoneroComponents.Style.buttonSecondaryTextColor;
+        ? WildstacksComponents.Style.buttonTextColor
+        : WildstacksComponents.Style.buttonSecondaryTextColor;
     property bool small: false
     property alias text: label.text
     property alias fontBold: label.font.bold
@@ -83,8 +83,8 @@ Item {
                 PropertyChanges {
                     target: buttonRect
                     color: primary
-                        ? MoneroComponents.Style.buttonBackgroundColorHover
-                        : MoneroComponents.Style.buttonSecondaryBackgroundColorHover
+                        ? WildstacksComponents.Style.buttonBackgroundColorHover
+                        : WildstacksComponents.Style.buttonSecondaryBackgroundColorHover
                 }
             },
             State {
@@ -93,8 +93,8 @@ Item {
                 PropertyChanges {
                     target: buttonRect
                     color: primary
-                        ? MoneroComponents.Style.buttonBackgroundColor
-                        : MoneroComponents.Style.buttonSecondaryBackgroundColor
+                        ? WildstacksComponents.Style.buttonBackgroundColor
+                        : WildstacksComponents.Style.buttonSecondaryBackgroundColor
                 }
             },
             State {
@@ -102,7 +102,7 @@ Item {
                 when: !button.enabled
                 PropertyChanges {
                     target: buttonRect
-                    color: MoneroComponents.Style.buttonBackgroundColorDisabled
+                    color: WildstacksComponents.Style.buttonBackgroundColorDisabled
                 }
             }
         ]
@@ -119,16 +119,16 @@ Item {
         spacing: 11
         anchors.centerIn: parent
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: label
-            font.family: MoneroComponents.Style.fontBold.name
+            font.family: WildstacksComponents.Style.fontBold.name
             font.bold: true
             font.pixelSize: button.fontSize
             color: !buttonArea.pressed ? button.textColor : "transparent"
             visible: text !== ""
             themeTransition: false
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 anchors.centerIn: parent
                 color: button.textColor
                 font.bold: label.font.bold
@@ -155,7 +155,7 @@ Item {
 
         Text {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
-            color: MoneroComponents.Style.defaultFontColor
+            color: WildstacksComponents.Style.defaultFontColor
             font.family: FontAwesome.fontFamilySolid
             font.pixelSize: button.small ? 16 : 20
             font.styleName: "Solid"
@@ -164,7 +164,7 @@ Item {
         }
     }
 
-    MoneroComponents.Tooltip {
+    WildstacksComponents.Tooltip {
         id: tooltip
         anchors.fill: parent
     }

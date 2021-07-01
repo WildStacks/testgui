@@ -32,14 +32,14 @@ import QtGraphicalEffects 1.0
 
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "./effects/" as MoneroEffects
+import "." as WildstacksComponents
+import "./effects/" as WildstacksEffects
 
 Item {
     id: inlineButton
 
     property bool small: false
-    property string textColor: MoneroComponents.Style.inlineButtonTextColor
+    property string textColor: WildstacksComponents.Style.inlineButtonTextColor
     property alias text: inlineText.text
     property alias fontPixelSize: inlineText.font.pixelSize
     property alias fontFamily: inlineText.font.family
@@ -64,13 +64,13 @@ Item {
     Rectangle{
         id: rect
         anchors.fill: parent
-        color: MoneroComponents.Style.buttonInlineBackgroundColor
+        color: WildstacksComponents.Style.buttonInlineBackgroundColor
         radius: 4
 
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: inlineText
-            font.family: MoneroComponents.Style.fontBold.name
+            font.family: WildstacksComponents.Style.fontBold.name
             font.bold: true
             font.pixelSize: inlineButton.isFontAwesomeIcon ? 22 : inlineButton.small ? 14 : 16
             color: inlineButton.textColor
@@ -78,14 +78,14 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             themeTransition: false
 
-            MoneroEffects.ColorTransition {
+            WildstacksEffects.ColorTransition {
                 targetObj: inlineText
-                blackColor: MoneroComponents.Style._b_inlineButtonTextColor
-                whiteColor: MoneroComponents.Style._w_inlineButtonTextColor
+                blackColor: WildstacksComponents.Style._b_inlineButtonTextColor
+                whiteColor: WildstacksComponents.Style._w_inlineButtonTextColor
             }
         }
 
-        MoneroComponents.Tooltip {
+        WildstacksComponents.Tooltip {
             id: tooltip
             anchors.fill: parent
         }
@@ -113,7 +113,7 @@ Item {
     }
 
     DropShadow {
-        visible: !MoneroComponents.Style.blackTheme
+        visible: !WildstacksComponents.Style.blackTheme
         anchors.fill: rect
         horizontalOffset: 2
         verticalOffset: 2

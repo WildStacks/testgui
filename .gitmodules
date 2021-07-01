@@ -1,0 +1,3 @@
+[submodule "wildstacks"]
+	path = wildstacks
+	url = https://github.com/wildstacks/wildstacks

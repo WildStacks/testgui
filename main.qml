@@ -36,17 +36,17 @@ import QtGraphicalEffects 1.0
 
 import FontAwesome 1.0
 
-import moneroComponents.Network 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.PendingTransaction 1.0
-import moneroComponents.NetworkType 1.0
-import moneroComponents.Settings 1.0
+import wildstacksComponents.Network 1.0
+import wildstacksComponents.Wallet 1.0
+import wildstacksComponents.WalletManager 1.0
+import wildstacksComponents.PendingTransaction 1.0
+import wildstacksComponents.NetworkType 1.0
+import wildstacksComponents.Settings 1.0
 
 import "components"
-import "components" as MoneroComponents
-import "components/effects" as MoneroEffects
-import "pages/merchant" as MoneroMerchant
+import "components" as WildstacksComponents
+import "components/effects" as WildstacksEffects
+import "pages/merchant" as WildstacksMerchant
 import "wizard"
 import "js/Utils.js" as Utils
 import "js/Windows.js" as Windows
@@ -65,7 +65,7 @@ ApplicationWindow {
     property bool hideBalanceForced: false
     property bool ctrlPressed: false
     property alias persistentSettings : persistentSettings
-    property string accountsDir: !persistentSettings.portable ? moneroAccountsDir : persistentSettings.portableFolderName + "/wallets"
+    property string accountsDir: !persistentSettings.portable ? wildstacksAccountsDir : persistentSettings.portableFolderName + "/wallets"
     property var currentWallet;
     property bool disconnected: currentWallet ? currentWallet.disconnected : false
     property var transaction;
@@ -1096,7 +1096,7 @@ ApplicationWindow {
             wizard.wizardState = "wizardHome";
             rootItem.state = "wizard"
             // reset balance, clear spendable funds message
-            clearMoneroCardLabelText();
+            clearWildstacksCardLabelText();
             leftPanel.minutesToUnlock = "";
             // reset fields
             middlePanel.addressBookView.clearFields();
@@ -1116,7 +1116,7 @@ ApplicationWindow {
     height: screenAvailableHeight > maxWindowHeight
         ? maxWindowHeight
         : Math.min(screenAvailableHeight, 700)
-    color: MoneroComponents.Style.appWindowBackgroundColor
+    color: WildstacksComponents.Style.appWindowBackgroundColor
     flags: persistentSettings.customDecorations ? Windows.flagsCustomDecorations : Windows.flags
 
     Timer {
@@ -1351,7 +1351,7 @@ ApplicationWindow {
         remoteNodesModel.initialize();
     }
 
-    MoneroSettings {
+    WildstacksSettings {
         id: persistentSettings
         fileName: {
             if(isTails && tailsUsePersistence)
@@ -1407,7 +1407,7 @@ ApplicationWindow {
         property bool lockOnUserInActivity: true
         property int walletMode: 2
         property int lockOnUserInActivityInterval: 10  // minutes
-        property bool blackTheme: MoneroComponents.Style.blackTheme
+        property bool blackTheme: WildstacksComponents.Style.blackTheme
         property bool checkForUpdates: true
         property bool autosave: true
         property int autosaveMinutes: 10
@@ -1438,7 +1438,7 @@ ApplicationWindow {
         }
 
         Component.onCompleted: {
-            MoneroComponents.Style.blackTheme = persistentSettings.blackTheme
+            WildstacksComponents.Style.blackTheme = persistentSettings.blackTheme
         }
     }
 
@@ -1596,7 +1596,7 @@ ApplicationWindow {
         }
     }
 
-    MoneroComponents.UpdateDialog {
+    WildstacksComponents.UpdateDialog {
         id: updateDialog
 
         allowed: !passwordDialog.visible && !inputDialog.visible && !splash.visible
@@ -1604,7 +1604,7 @@ ApplicationWindow {
         y: (parent.height - height) / 2
     }
 
-    MoneroComponents.RemoteNodeDialog {
+    WildstacksComponents.RemoteNodeDialog {
         id: remoteNodeDialog
     }
 
@@ -1823,7 +1823,7 @@ ApplicationWindow {
             WizardController {
                 id: wizard
                 anchors.fill: parent
-                onUseMoneroClicked: {
+                onUseWildstacksClicked: {
                     rootItem.state = "normal";
                     appWindow.openWallet("wizard");
                 }
@@ -1853,11 +1853,11 @@ ApplicationWindow {
             height: 34
             width: 34
 
-            MoneroEffects.ImageMask {
+            WildstacksEffects.ImageMask {
                 anchors.centerIn: parent
                 visible: persistentSettings.customDecorations
                 image: "qrc:///images/resize.png"
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 width: 12
                 height: 12
                 opacity: (parent.containsMouse || parent.pressed) ? 0.5 : 1.0
@@ -1900,7 +1900,7 @@ ApplicationWindow {
             onMinimizeClicked: appWindow.visibility = Window.Minimized
         }
 
-        MoneroMerchant.MerchantTitlebar {
+        WildstacksMerchant.MerchantTitlebar {
             id: titleBarOrange
             visible: persistentSettings.customDecorations && middlePanel.state === "Merchant"
             anchors.left: parent.left
@@ -1928,7 +1928,7 @@ ApplicationWindow {
                 source: "qrc:///images/tip.png"
             }
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 id: content
                 anchors.horizontalCenter: parent.horizontalCenter
                 y: 6
@@ -2044,14 +2044,14 @@ ApplicationWindow {
         anchors.bottom: parent.bottom
         width: statusMessageText.contentWidth + 20
         anchors.horizontalCenter: parent.horizontalCenter
-        color: MoneroComponents.Style.blackTheme ? "black" : "white"
+        color: WildstacksComponents.Style.blackTheme ? "black" : "white"
         height: 40
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: statusMessageText
             anchors.fill: parent
             anchors.margins: 10
             font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
+            color: WildstacksComponents.Style.defaultFontColor
             themeTransition: false
         }
     }
@@ -2186,14 +2186,14 @@ ApplicationWindow {
     }
 
     // reset label text. othewise potential privacy leak showing unlock time when switching wallets
-    function clearMoneroCardLabelText(){
+    function clearWildstacksCardLabelText(){
         leftPanel.balanceString = "?.??"
         leftPanel.balanceFiatString = "?.??"
     }
 
     // some fields need an extra nudge when changing languages
     function resetLanguageFields(){
-        clearMoneroCardLabelText()
+        clearWildstacksCardLabelText()
         if (currentWallet) {
             onWalletRefresh();
         }
@@ -2274,10 +2274,10 @@ ApplicationWindow {
         visible: blur.visible
         anchors.fill: parent
         anchors.topMargin: titleBar.height
-        color: MoneroComponents.Style.blackTheme ? "black" : "white"
+        color: WildstacksComponents.Style.blackTheme ? "black" : "white"
         opacity: isOpenGL ? 0.3 : inputDialog.visible || splash.visible ? 0.7 : 1.0
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
             blackColor: "black"
             whiteColor: "white"
@@ -2291,75 +2291,75 @@ ApplicationWindow {
 
     // borders on white theme + linux
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !WildstacksComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WildstacksComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+            whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
         }
     }
 
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !WildstacksComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WildstacksComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+            whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
         }
     }
 
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !WildstacksComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.left: parent.left
         height: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WildstacksComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+            whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
         }
     }
 
     Rectangle {
-        visible: isLinux && !MoneroComponents.Style.blackTheme && middlePanel.state !== "Merchant"
+        visible: isLinux && !WildstacksComponents.Style.blackTheme && middlePanel.state !== "Merchant"
         z: parent.z + 1
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         height: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WildstacksComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+            whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
         }
     }
 
-    MoneroComponents.LanguageSidebar {
+    WildstacksComponents.LanguageSidebar {
         id: languageSidebar
         dragMargin: 0
     }
 
-    MoneroComponents.MenuBar { }
+    WildstacksComponents.MenuBar { }
 
     Network {
         id: network

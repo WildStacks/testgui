@@ -33,13 +33,13 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
+import wildstacksComponents.Wallet 1.0
 
 import "./pages"
 import "./pages/settings"
 import "./pages/merchant"
-import "./components" as MoneroComponents
-import "./components/effects/" as MoneroEffects
+import "./components" as WildstacksComponents
+import "./components/effects/" as WildstacksEffects
 
 Rectangle {
     id: root
@@ -72,20 +72,20 @@ Rectangle {
     Rectangle {
         // grey background on merchantView
         visible: currentView === merchantView
-        color: MoneroComponents.Style.moneroGrey
+        color: WildstacksComponents.Style.wildstacksGrey
         anchors.fill: parent
     }
 
-    MoneroEffects.GradientBackground {
+    WildstacksEffects.GradientBackground {
         visible: currentView !== merchantView
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.middlePanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.middlePanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_middlePanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_middlePanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_middlePanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_middlePanelBackgroundGradientStop
+        fallBackColor: WildstacksComponents.Style.middlePanelBackgroundColor
+        initialStartColor: WildstacksComponents.Style.middlePanelBackgroundGradientStart
+        initialStopColor: WildstacksComponents.Style.middlePanelBackgroundGradientStop
+        blackColorStart: WildstacksComponents.Style._b_middlePanelBackgroundGradientStart
+        blackColorStop: WildstacksComponents.Style._b_middlePanelBackgroundGradientStop
+        whiteColorStart: WildstacksComponents.Style._w_middlePanelBackgroundGradientStart
+        whiteColorStop: WildstacksComponents.Style._w_middlePanelBackgroundGradientStop
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
     }
@@ -237,12 +237,12 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WildstacksComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WildstacksEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+            whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
         }
     }
 

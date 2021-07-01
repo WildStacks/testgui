@@ -29,13 +29,13 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.NetworkType 1.0
-import moneroComponents.Clipboard 1.0
+import wildstacksComponents.Wallet 1.0
+import wildstacksComponents.NetworkType 1.0
+import wildstacksComponents.Clipboard 1.0
 import FontAwesome 1.0
 
-import "components" as MoneroComponents
-import "components/effects/" as MoneroEffects
+import "components" as WildstacksComponents
+import "components/effects/" as WildstacksEffects
 
 Rectangle {
     id: panel
@@ -80,15 +80,15 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.top: parent.top
 
-    MoneroEffects.GradientBackground {
+    WildstacksEffects.GradientBackground {
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.leftPanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.leftPanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_leftPanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_leftPanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_leftPanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_leftPanelBackgroundGradientStop
+        fallBackColor: WildstacksComponents.Style.middlePanelBackgroundColor
+        initialStartColor: WildstacksComponents.Style.leftPanelBackgroundGradientStart
+        initialStopColor: WildstacksComponents.Style.leftPanelBackgroundGradientStop
+        blackColorStart: WildstacksComponents.Style._b_leftPanelBackgroundGradientStart
+        blackColorStop: WildstacksComponents.Style._b_leftPanelBackgroundGradientStop
+        whiteColorStart: WildstacksComponents.Style._w_leftPanelBackgroundGradientStart
+        whiteColorStop: WildstacksComponents.Style._w_leftPanelBackgroundGradientStop
         posStart: 0.6
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
@@ -116,15 +116,15 @@ Rectangle {
 
                 Image {
                     id: card
-                    visible: !isOpenGL || MoneroComponents.Style.blackTheme
+                    visible: !isOpenGL || WildstacksComponents.Style.blackTheme
                     width: 260
                     height: 135
                     fillMode: Image.PreserveAspectFit
-                    source: MoneroComponents.Style.blackTheme ? "qrc:///images/card-background-black.png" : "qrc:///images/card-background-white.png"
+                    source: WildstacksComponents.Style.blackTheme ? "qrc:///images/card-background-black.png" : "qrc:///images/card-background-white.png"
                 }
 
                 DropShadow {
-                    visible: isOpenGL && !MoneroComponents.Style.blackTheme
+                    visible: isOpenGL && !WildstacksComponents.Style.blackTheme
                     anchors.fill: card
                     horizontalOffset: 3
                     verticalOffset: 3
@@ -135,7 +135,7 @@ Rectangle {
                     cached: true
                 }
 
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     id: testnetLabel
                     visible: persistentSettings.nettype != NetworkType.MAINNET
                     text: (persistentSettings.nettype == NetworkType.TESTNET ? qsTr("Testnet") : qsTr("Stagenet")) + translationManager.emptyString
@@ -149,7 +149,7 @@ Rectangle {
                     themeTransition: false
                 }
 
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     id: viewOnlyLabel
                     visible: viewOnly
                     text: qsTr("View Only") + translationManager.emptyString
@@ -172,11 +172,11 @@ Rectangle {
                 height: 490
                 width: 50
 
-                MoneroComponents.Label {
+                WildstacksComponents.Label {
                     fontSize: 12
                     id: accountIndex
                     text: qsTr("Account") + translationManager.emptyString + " #" + currentAccountIndex
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: WildstacksComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 60
                     anchors.top: parent.top
@@ -191,11 +191,11 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.Label {
+                WildstacksComponents.Label {
                     fontSize: 16
                     id: accountLabel
                     textWidth: 170
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: WildstacksComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 60
                     anchors.top: parent.top
@@ -211,11 +211,11 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.Label {
+                WildstacksComponents.Label {
                     fontSize: 16
                     visible: isSyncing
                     text: qsTr("Syncing...") + translationManager.emptyString
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: WildstacksComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 20
                     anchors.bottom: currencyLabel.top
@@ -223,17 +223,17 @@ Rectangle {
                     themeTransition: false
                 }
 
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     id: currencyLabel
                     font.pixelSize: 16
                     text: {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
                         } else {
-                            return "XMR"
+                            return "WSTS"
                         }
                     }
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: WildstacksComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 20
                     anchors.top: parent.top
@@ -249,16 +249,16 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     id: balancePart1
                     themeTransition: false
                     anchors.left: parent.left
                     anchors.leftMargin: 58
                     anchors.baseline: currencyLabel.baseline
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: WildstacksComponents.Style.blackTheme ? "white" : "black"
                     Binding on color {
                         when: balancePart1MouseArea.containsMouse || balancePart2MouseArea.containsMouse
-                        value: MoneroComponents.Style.orange
+                        value: WildstacksComponents.Style.orange
                     }
                     text: {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
@@ -288,7 +288,7 @@ Rectangle {
                         }
                     }
                 }
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     id: balancePart2
                     themeTransition: false
                     anchors.left: balancePart1.right
@@ -348,14 +348,14 @@ Rectangle {
             property var previousButton: transferButton
 
             // top border
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: 20
             }
 
             // ------------- Account tab ---------------
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: accountButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -368,7 +368,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: accountButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -376,7 +376,7 @@ Rectangle {
             }
 
             // ------------- Transfer tab ---------------
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: transferButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -389,7 +389,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: transferButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -398,7 +398,7 @@ Rectangle {
 
             // ------------- AddressBook tab ---------------
 
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: addressBookButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -412,7 +412,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: addressBookButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -420,7 +420,7 @@ Rectangle {
             }
 
             // ------------- Receive tab ---------------
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: receiveButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -433,7 +433,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: receiveButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -442,7 +442,7 @@ Rectangle {
 
             // ------------- History tab ---------------
 
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: historyButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -455,7 +455,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: historyButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -463,7 +463,7 @@ Rectangle {
             }
 
             // ------------- Advanced tab ---------------
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: advancedButton
                 visible: appWindow.walletMode >= 2
                 anchors.left: parent.left
@@ -477,7 +477,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: advancedButton.present && appWindow.walletMode >= 2
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -485,7 +485,7 @@ Rectangle {
             }
 
             // ------------- Settings tab ---------------
-            MoneroComponents.MenuButton {
+            WildstacksComponents.MenuButton {
                 id: settingsButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -498,7 +498,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            WildstacksComponents.MenuButtonDivider {
                 visible: settingsButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -520,7 +520,7 @@ Rectangle {
             color: "transparent"
         }
 
-        MoneroComponents.ProgressBar {
+        WildstacksComponents.ProgressBar {
             id: progressBar
             anchors.left: parent.left
             anchors.right: parent.right
@@ -530,7 +530,7 @@ Rectangle {
             visible: !appWindow.disconnected
         }
 
-        MoneroComponents.ProgressBar {
+        WildstacksComponents.ProgressBar {
             id: daemonProgressBar
             anchors.left: parent.left
             anchors.right: parent.right
@@ -540,7 +540,7 @@ Rectangle {
             height: 62
         }
         
-        MoneroComponents.NetworkStatusItem {
+        WildstacksComponents.NetworkStatusItem {
             id: networkStatus
             anchors.left: parent.left
             anchors.right: parent.right

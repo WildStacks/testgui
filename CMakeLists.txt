@@ -88,7 +88,7 @@ endif()
 include(CMakePackageConfigHelpers)
 
 # force version update
-function (monero_gui_add_library_with_deps)
+function (wildstacks_gui_add_library_with_deps)
   cmake_parse_arguments(MONERO_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
   source_group("${MONERO_ADD_LIBRARY_NAME}" FILES ${MONERO_ADD_LIBRARY_SOURCES})
 
@@ -107,8 +107,8 @@ function (monero_gui_add_library_with_deps)
     PRIVATE $<TARGET_PROPERTY:${MONERO_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
 endfunction ()
 
-function (monero_gui_add_library name)
-    monero_gui_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
+function (wildstacks_gui_add_library name)
+    wildstacks_gui_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
 endfunction()
 
 include_directories(${EASYLOGGING_INCLUDE})
@@ -116,7 +116,7 @@ link_directories(${EASYLOGGING_LIBRARY_DIRS})
 
 
 include(VersionGui)
-monero_gui_add_library(gui_version SOURCES version.js DEPENDS genversiongui)
+wildstacks_gui_add_library(gui_version SOURCES version.js DEPENDS genversiongui)
 
 message(STATUS "${CMAKE_MODULE_PATH}")
 

@@ -34,7 +34,7 @@ import QtQuick.Dialogs 1.2
 import "../../js/Wizard.js" as Wizard
 import "../../js/Utils.js" as Utils
 import "../../version.js" as Version
-import "../../components" as MoneroComponents
+import "../../components" as WildstacksComponents
 
 
 Rectangle {
@@ -65,14 +65,14 @@ Rectangle {
             columns: 2
             columnSpacing: 0
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 font.pixelSize: 14
                 text: qsTr("GUI version: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 font.pixelSize: 14
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 text: Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")" + translationManager.emptyString
             }
 
@@ -81,8 +81,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -90,20 +90,20 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
-                id: guiMoneroVersion
+            WildstacksComponents.TextBlock {
+                id: guiWildstacksVersion
                 font.pixelSize: 14
                 text: qsTr("Embedded WildStacks version: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 font.pixelSize: 14
-                color: MoneroComponents.Style.dimmedFontColor
-                text: moneroVersion
+                color: WildstacksComponents.Style.dimmedFontColor
+                text: wildstacksVersion
             }
 
             Rectangle {
@@ -111,8 +111,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -120,20 +120,20 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet path: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 id: walletLocation
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 property string walletPath: (isIOS ?  appWindow.accountsDir : "") + persistentSettings.wallet_path
                 text: "\
@@ -156,8 +156,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -165,22 +165,22 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 id: restoreHeight
                 font.pixelSize: 14
                 textFormat: Text.RichText
                 text: (typeof currentWallet == "undefined") ? "" : qsTr("Wallet restore height: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 id: restoreHeightText
                 Layout.fillWidth: true
                 textFormat: Text.RichText
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 property var style: "<style type='text/css'>a {cursor:pointer;text-decoration: none; color: #FF6C3C}</style>"
                 text: (currentWallet ? currentWallet.walletCreationHeight : "") + style + " <a href='#'> (%1)</a>".arg(qsTr("Change")) + translationManager.emptyString
@@ -239,8 +239,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -248,19 +248,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet log path: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: "\
                     <style type='text/css'>\
@@ -282,8 +282,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -291,19 +291,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet mode: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: walletModeString
             }
@@ -313,8 +313,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -322,19 +322,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Graphics mode: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: isOpenGL ? "OpenGL" : "Low graphics mode"
             }
@@ -345,8 +345,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -355,21 +355,21 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 visible: isTails
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Tails: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 visible: isTails
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WildstacksComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: tailsUsePersistence ? qsTr("persistent") + translationManager.emptyString : qsTr("persistence disabled") + translationManager.emptyString;
             }
@@ -378,13 +378,13 @@ Rectangle {
         RowLayout {
             spacing: 20;
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 small: true
                 text: qsTr("Copy to clipboard") + translationManager.emptyString
                 onClicked: {
                     var data = "";
                     data += "GUI version: " + Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")";
-                    data += "\nEmbedded WildStacks version: " + moneroVersion;
+                    data += "\nEmbedded WildStacks version: " + wildstacksVersion;
                     data += "\nWallet path: " + walletLocation.walletPath;
 
                     data += "\nWallet restore height: ";
@@ -403,7 +403,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 small: true
                 text: qsTr("Donate to WildStacks") + translationManager.emptyString
                 onClicked: {

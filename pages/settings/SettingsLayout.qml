@@ -33,7 +33,7 @@ import QtQuick.Dialogs 1.2
 
 import "../../js/Utils.js" as Utils
 import "../../js/Windows.js" as Windows
-import "../../components" as MoneroComponents
+import "../../components" as WildstacksComponents
 
 Rectangle {
     color: "transparent"
@@ -51,14 +51,14 @@ Rectangle {
         anchors.topMargin: 0
         spacing: 6
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: customDecorationsCheckBox
             checked: persistentSettings.customDecorations
             onClicked: Windows.setCustomWindowDecorations(checked)
             text: qsTr("Custom decorations") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: checkForUpdatesCheckBox
             enabled: !disableCheckUpdatesFlag
             checked: persistentSettings.checkForUpdates && !disableCheckUpdatesFlag
@@ -66,13 +66,13 @@ Rectangle {
             text: qsTr("Check for updates periodically") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             checked: persistentSettings.displayWalletNameInTitleBar
             onClicked: persistentSettings.displayWalletNameInTitleBar = !persistentSettings.displayWalletNameInTitleBar
             text: qsTr("Display wallet name in title bar") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: hideBalanceCheckBox
             checked: persistentSettings.hideBalance
             onClicked: {
@@ -82,17 +82,17 @@ Rectangle {
             text: qsTr("Hide balance") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: themeCheckbox
-            checked: !MoneroComponents.Style.blackTheme
+            checked: !WildstacksComponents.Style.blackTheme
             text: qsTr("Light theme") + translationManager.emptyString
             toggleOnClick: false
             onClicked: {
-                MoneroComponents.Style.blackTheme = !MoneroComponents.Style.blackTheme;
+                WildstacksComponents.Style.blackTheme = !WildstacksComponents.Style.blackTheme;
             }
         }
         
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             checked: persistentSettings.askPasswordBeforeSending
             text: qsTr("Ask for password before sending a transaction") + translationManager.emptyString
             toggleOnClick: false
@@ -113,13 +113,13 @@ Rectangle {
             }
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             checked: persistentSettings.autosave
             onClicked: persistentSettings.autosave = !persistentSettings.autosave
             text: qsTr("Autosave") + translationManager.emptyString
         }
 
-        MoneroComponents.Slider {
+        WildstacksComponents.Slider {
             Layout.fillWidth: true
             Layout.leftMargin: 35
             Layout.topMargin: 6
@@ -132,14 +132,14 @@ Rectangle {
             onMoved: persistentSettings.autosaveMinutes = value
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: userInActivityCheckbox
             checked: persistentSettings.lockOnUserInActivity
             onClicked: persistentSettings.lockOnUserInActivity = !persistentSettings.lockOnUserInActivity
             text: qsTr("Lock wallet on inactivity") + translationManager.emptyString
         }
 
-        MoneroComponents.Slider {
+        WildstacksComponents.Slider {
             visible: userInActivityCheckbox.checked
             Layout.fillWidth: true
             Layout.topMargin: 6
@@ -157,7 +157,7 @@ Rectangle {
 
         //! Manage pricing
         RowLayout {
-            MoneroComponents.CheckBox {
+            WildstacksComponents.CheckBox {
                 id: enableConvertCurrency
                 text: qsTr("Enable displaying balance in other currencies") + translationManager.emptyString
                 checked: persistentSettings.fiatPriceEnabled
@@ -178,7 +178,7 @@ Rectangle {
             Layout.leftMargin: 36
             columnSpacing: 32
 
-            MoneroComponents.StandardDropdown {
+            WildstacksComponents.StandardDropdown {
                 id: fiatPriceProviderDropDown
                 Layout.maximumWidth: 200
                 labelText: qsTr("Price source") + translationManager.emptyString
@@ -193,7 +193,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardDropdown {
+            WildstacksComponents.StandardDropdown {
                 id: fiatPriceCurrencyDropdown
                 Layout.maximumWidth: 100
                 labelText: qsTr("Currency") + translationManager.emptyString
@@ -219,11 +219,11 @@ Rectangle {
             Layout.topMargin: 5
             Layout.leftMargin: 36
 
-            MoneroComponents.WarningBox {
+            WildstacksComponents.WarningBox {
                 text: qsTr("Enabling price conversion exposes your IP address to the selected price source.") + translationManager.emptyString;
             }
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 Layout.topMargin: 10
                 Layout.bottomMargin: 10
                 small: true
@@ -238,7 +238,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: proxyCheckbox
             Layout.topMargin: 6
             enabled: !socksProxyFlagSet
@@ -251,7 +251,7 @@ Rectangle {
                 .arg(qsTr("updates downloading, fetching price sources")) + translationManager.emptyString
         }
 
-        MoneroComponents.RemoteNodeEdit {
+        WildstacksComponents.RemoteNodeEdit {
             id: proxyEdit
             enabled: proxyCheckbox.enabled
             Layout.leftMargin: 36
@@ -269,7 +269,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.StandardButton {
+        WildstacksComponents.StandardButton {
             visible: !persistentSettings.customDecorations
             Layout.topMargin: 10
             small: true

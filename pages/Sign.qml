@@ -32,9 +32,9 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 
-import moneroComponents.Clipboard 1.0
-import moneroComponents.WalletManager 1.0
-import "../components" as MoneroComponents
+import wildstacksComponents.Clipboard 1.0
+import wildstacksComponents.WalletManager 1.0
+import "../components" as WildstacksComponents
 
 Rectangle {
     property alias signHeight: mainLayout.height
@@ -96,41 +96,41 @@ Rectangle {
 
         spacing: 20
 
-        MoneroComponents.Label {
+        WildstacksComponents.Label {
             fontSize: 24
             text: qsTr("Sign/verify") + translationManager.emptyString
         }
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             text: qsTr("This page lets you sign/verify a message (or file contents) with your address.") + translationManager.emptyString
             wrapMode: Text.Wrap
             Layout.fillWidth: true
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WildstacksComponents.Style.fontRegular.name
             font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
+            color: WildstacksComponents.Style.defaultFontColor
         }
 
         ColumnLayout {
             id: modeRow
             Layout.fillWidth: true
 
-            MoneroComponents.TextPlain {
+            WildstacksComponents.TextPlain {
                 id: modeText
                 Layout.fillWidth: true
                 Layout.topMargin: 12
                 text: qsTr("Mode") + translationManager.emptyString
                 wrapMode: Text.Wrap
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: WildstacksComponents.Style.fontRegular.name
                 font.pixelSize: 20
                 textFormat: Text.RichText
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
             }
 
             ColumnLayout {
                 id: modeButtonsColumn
                 Layout.topMargin: 10
 
-                MoneroComponents.RadioButton {
+                WildstacksComponents.RadioButton {
                     id: handleMessageButton
                     text: qsTr("Message") + translationManager.emptyString
                     fontSize: 16
@@ -143,7 +143,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.RadioButton {
+                WildstacksComponents.RadioButton {
                     id: handleFileButton
                     text: qsTr("File") + translationManager.emptyString
                     fontSize: 16
@@ -162,7 +162,7 @@ Rectangle {
             id: signSection
             spacing: 10
 
-            MoneroComponents.LabelSubheader {
+            WildstacksComponents.LabelSubheader {
                 Layout.fillWidth: true
                 Layout.topMargin: 12
                 Layout.bottomMargin: 24
@@ -176,7 +176,7 @@ Rectangle {
                 spacing: 10
                 visible: messageMode
 
-                MoneroComponents.LineEditMulti{
+                WildstacksComponents.LineEditMulti{
                     id: signMessageLine
                     Layout.fillWidth: true
                     labelFontSize: 14
@@ -194,7 +194,7 @@ Rectangle {
                 Layout.fillWidth: true
                 visible: fileMode
 
-                MoneroComponents.LineEditMulti {
+                WildstacksComponents.LineEditMulti {
                     id: signFileLine
                     labelFontSize: 14
                     labelText: qsTr("File") + translationManager.emptyString
@@ -207,7 +207,7 @@ Rectangle {
                     text: ''
                 }
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: loadFileToSignButton
                     Layout.alignment: Qt.AlignBottom
                     small: false
@@ -222,7 +222,7 @@ Rectangle {
             ColumnLayout {
                 id: signSignatureRow
 
-                MoneroComponents.LineEditMulti {
+                WildstacksComponents.LineEditMulti {
                     id: signSignatureLine
                     labelFontSize: 14
                     labelText: qsTr("Signature") + translationManager.emptyString
@@ -239,7 +239,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: clearSignButton
                     text: qsTr("Clear") + translationManager.emptyString
                     enabled: signMessageLine.text !== '' || signFileLine.text !== ''
@@ -251,7 +251,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: signMessageButton
                     visible: messageMode
                     text: qsTr("Sign Message") + translationManager.emptyString
@@ -263,7 +263,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: signFileButton
                     visible: fileMode
                     small: true
@@ -282,14 +282,14 @@ Rectangle {
             id: verifySection
             spacing: 16
 
-            MoneroComponents.LabelSubheader {
+            WildstacksComponents.LabelSubheader {
                 Layout.fillWidth: true
                 Layout.bottomMargin: 24
                 textFormat: Text.RichText
                 text: fileMode ? qsTr("Verify file") + translationManager.emptyString : qsTr("Verify message") + translationManager.emptyString
             }
 
-            MoneroComponents.LineEditMulti {
+            WildstacksComponents.LineEditMulti {
                 id: verifyMessageLine
                 visible: messageMode
                 Layout.fillWidth: true
@@ -307,7 +307,7 @@ Rectangle {
                 Layout.fillWidth: true
                 visible: fileMode
 
-                MoneroComponents.LineEditMulti {
+                WildstacksComponents.LineEditMulti {
                     id: verifyFileLine
                     labelFontSize: 14
                     labelText: qsTr("File") + translationManager.emptyString
@@ -319,7 +319,7 @@ Rectangle {
                     text: ''
                 }
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: loadFileToVerifyButton
                     Layout.alignment: Qt.AlignBottom
                     small: false
@@ -331,7 +331,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEditMulti {
+            WildstacksComponents.LineEditMulti {
                 id: verifyAddressLine
                 Layout.fillWidth: true
                 labelFontSize: 14
@@ -343,7 +343,7 @@ Rectangle {
                 text: ''
             }
 
-            MoneroComponents.LineEditMulti {
+            WildstacksComponents.LineEditMulti {
                 id: verifySignatureLine
                 labelFontSize: 14
                 labelText: qsTr("Signature") + translationManager.emptyString
@@ -359,7 +359,7 @@ Rectangle {
                 Layout.topMargin: 12
                 Layout.alignment: Qt.AlignRight
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: clearVerifyButton
                     text: qsTr("Clear") + translationManager.emptyString
                     enabled: verifyMessageLine.text !== '' || verifyFileLine.text !== '' || verifyAddressLine.text !== '' || verifySignatureLine.text  !== ''
@@ -372,7 +372,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: verifyFileButton
                     visible: fileMode
                     small: true
@@ -384,7 +384,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     id: verifyMessageButton
                     visible: messageMode
                     small: true

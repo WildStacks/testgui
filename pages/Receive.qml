@@ -33,16 +33,16 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WildstacksComponents
+import "../components/effects/" as WildstacksEffects
 
-import moneroComponents.Clipboard 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
-import moneroComponents.TransactionHistoryModel 1.0
-import moneroComponents.Subaddress 1.0
-import moneroComponents.SubaddressModel 1.0
+import wildstacksComponents.Clipboard 1.0
+import wildstacksComponents.Wallet 1.0
+import wildstacksComponents.WalletManager 1.0
+import wildstacksComponents.TransactionHistory 1.0
+import wildstacksComponents.TransactionHistoryModel 1.0
+import wildstacksComponents.Subaddress 1.0
+import wildstacksComponents.SubaddressModel 1.0
 import "../js/TxUtils.js" as TxUtils
 
 Rectangle {
@@ -78,7 +78,7 @@ Rectangle {
             id: addressRow
             spacing: 0
 
-            MoneroComponents.LabelSubheader {
+            WildstacksComponents.LabelSubheader {
                 Layout.fillWidth: true
                 fontSize: 24
                 textFormat: Text.RichText
@@ -107,20 +107,20 @@ Rectangle {
                         height: subaddressListRow.subaddressListItemHeight
                         width: parent ? parent.width : undefined
                         Layout.fillWidth: true
-                        color: itemMouseArea.containsMouse || index === appWindow.current_subaddress_table_index ? MoneroComponents.Style.titleBarButtonHoverColor : "transparent"
+                        color: itemMouseArea.containsMouse || index === appWindow.current_subaddress_table_index ? WildstacksComponents.Style.titleBarButtonHoverColor : "transparent"
 
                         Rectangle{
                             anchors.right: parent.right
                             anchors.left: parent.left
                             anchors.top: parent.top
                             height: 1
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: WildstacksComponents.Style.appWindowBorderColor
                             visible: index !== 0
 
-                            MoneroEffects.ColorTransition {
+                            WildstacksEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+                                whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -130,9 +130,9 @@ Rectangle {
                             anchors.rightMargin: 90
                             color: "transparent"
 
-                            MoneroComponents.Label {
+                            WildstacksComponents.Label {
                                 id: idLabel
-                                color: index === appWindow.current_subaddress_table_index ? MoneroComponents.Style.defaultFontColor : "#757575"
+                                color: index === appWindow.current_subaddress_table_index ? WildstacksComponents.Style.defaultFontColor : "#757575"
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.left
                                 anchors.leftMargin: 6
@@ -141,9 +141,9 @@ Rectangle {
                                 themeTransition: false
                             }
 
-                            MoneroComponents.Label {
+                            WildstacksComponents.Label {
                                 id: nameLabel
-                                color: index === appWindow.current_subaddress_table_index ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                                color: index === appWindow.current_subaddress_table_index ? WildstacksComponents.Style.defaultFontColor : WildstacksComponents.Style.dimmedFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: idLabel.right
                                 anchors.leftMargin: 6
@@ -154,14 +154,14 @@ Rectangle {
                                 themeTransition: false
                             }
 
-                            MoneroComponents.Label {
+                            WildstacksComponents.Label {
                                 id: addressLabel
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WildstacksComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.right
                                 anchors.leftMargin: -addressLabel.width - 5
                                 fontSize: 16
-                                fontFamily: MoneroComponents.Style.fontMonoRegular.name;
+                                fontFamily: WildstacksComponents.Style.fontMonoRegular.name;
                                 text: TxUtils.addressTruncatePretty(address, mainLayout.width < 520 ? 1 : (mainLayout.width < 650 ? 2 : 3))
                                 themeTransition: false
                             }
@@ -182,10 +182,10 @@ Rectangle {
                             height: 21
                             spacing: 10
 
-                            MoneroComponents.IconButton {
+                            WildstacksComponents.IconButton {
                                 fontAwesomeFallbackIcon: FontAwesome.searchPlus
                                 fontAwesomeFallbackSize: 22
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WildstacksComponents.Style.defaultFontColor
                                 fontAwesomeFallbackOpacity: 0.5
                                 Layout.preferredWidth: 23
                                 Layout.preferredHeight: 21
@@ -194,12 +194,12 @@ Rectangle {
                                 onClicked: doSearchInHistory(address)
                             }
 
-                            MoneroComponents.IconButton {
+                            WildstacksComponents.IconButton {
                                 id: renameButton
                                 image: "qrc:///images/edit.svg"
                                 fontAwesomeFallbackIcon: FontAwesome.edit
                                 fontAwesomeFallbackSize: 22
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WildstacksComponents.Style.defaultFontColor
                                 opacity: 0.5
                                 Layout.preferredWidth: 23
                                 Layout.preferredHeight: 21
@@ -211,12 +211,12 @@ Rectangle {
                                 }
                             }
 
-                            MoneroComponents.IconButton {
+                            WildstacksComponents.IconButton {
                                 id: copyButton
                                 image: "qrc:///images/copy.svg"
                                 fontAwesomeFallbackIcon: FontAwesome.clipboard
                                 fontAwesomeFallbackSize: 22
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WildstacksComponents.Style.defaultFontColor
                                 opacity: 0.5
                                 Layout.preferredWidth: 16
                                 Layout.preferredHeight: 21
@@ -242,18 +242,18 @@ Rectangle {
             }
 
             Rectangle {
-                color: MoneroComponents.Style.appWindowBorderColor
+                color: WildstacksComponents.Style.appWindowBorderColor
                 Layout.fillWidth: true
                 height: 1
 
-                MoneroEffects.ColorTransition {
+                WildstacksEffects.ColorTransition {
                     targetObj: parent
-                    blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                    whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                    blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+                    whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
                 }
             }
 
-            MoneroComponents.CheckBox {
+            WildstacksComponents.CheckBox {
                 id: addNewAddressCheckbox
                 border: false
                 uncheckedIcon: FontAwesome.plusCircle
@@ -284,7 +284,7 @@ Rectangle {
 
             Rectangle {
                 id: qrContainer
-                color: MoneroComponents.Style.blackTheme ? "white" : "transparent"
+                color: WildstacksComponents.Style.blackTheme ? "white" : "transparent"
                 Layout.fillWidth: true
                 Layout.maximumWidth: parent.qrSize
                 Layout.preferredHeight: width
@@ -307,7 +307,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 Layout.preferredWidth: 220
                 small: true
                 text: FontAwesome.save + "  %1".arg(qsTr("Save as image")) + translationManager.emptyString
@@ -316,7 +316,7 @@ Rectangle {
                 onClicked: qrFileDialog.open()
             }
 
-            MoneroComponents.StandardButton {
+            WildstacksComponents.StandardButton {
                 Layout.preferredWidth: 220
                 small: true
                 text: FontAwesome.eye + "  %1".arg(qsTr("Show on device")) + translationManager.emptyString

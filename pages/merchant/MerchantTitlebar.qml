@@ -32,8 +32,8 @@ import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.2
 
 import FontAwesome 1.0
-import "../../components/" as MoneroComponents
-import "../../components/effects/" as MoneroEffects
+import "../../components/" as WildstacksComponents
+import "../../components/effects/" as WildstacksEffects
 
 Rectangle {
     id: root
@@ -96,13 +96,13 @@ Rectangle {
             Layout.preferredWidth: parent.height
             Layout.preferredHeight: parent.height
 
-            MoneroEffects.ImageMask {
+            WildstacksEffects.ImageMask {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 18
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 3
                 width: 15
-                image: MoneroComponents.Style.titleBarMinimizeSource
+                image: WildstacksComponents.Style.titleBarMinimizeSource
                 color: "white"
                 opacity: 0.75
             }
@@ -128,7 +128,7 @@ Rectangle {
             Image {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: MoneroComponents.Style._b_titleBarFullscreenSource
+                source: WildstacksComponents.Style._b_titleBarFullscreenSource
                 sourceSize.width: 16
                 sourceSize.height: 16
                 smooth: true
@@ -155,12 +155,12 @@ Rectangle {
             Layout.preferredWidth: parent.height
             Layout.preferredHeight: parent.height
 
-            MoneroEffects.ImageMask {
+            WildstacksEffects.ImageMask {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 16
                 width: 16
-                image: MoneroComponents.Style._b_titleBarCloseSource
+                image: WildstacksComponents.Style._b_titleBarCloseSource
                 color: "white"
                 opacity: 0.75
             }

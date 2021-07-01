@@ -33,10 +33,10 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import "../../js/Windows.js" as Windows
 import "../../js/Utils.js" as Utils
-import "../../components" as MoneroComponents
+import "../../components" as WildstacksComponents
 import "../../pages"
 import "."
-import moneroComponents.Clipboard 1.0
+import wildstacksComponents.Clipboard 1.0
 
 ColumnLayout {
     id: settingsPage
@@ -48,33 +48,33 @@ ColumnLayout {
     property int settingsHeight: 900
     property alias settingsStateViewState: settingsStateView.state
 
-    MoneroComponents.Navbar {
+    WildstacksComponents.Navbar {
         Layout.alignment: Qt.AlignHCenter
         Layout.topMargin: height
         Layout.bottomMargin: height
 
-        MoneroComponents.NavbarItem {
+        WildstacksComponents.NavbarItem {
             active: settingsStateView.state == "Wallet"
             text: qsTr("Wallet") + translationManager.emptyString
             onSelected: settingsStateView.state = "Wallet"
         }
-        MoneroComponents.NavbarItem {
+        WildstacksComponents.NavbarItem {
             active: settingsStateView.state == "UI"
             text: qsTr("Interface") + translationManager.emptyString
             onSelected: settingsStateView.state = "UI"
         }
-        MoneroComponents.NavbarItem {
+        WildstacksComponents.NavbarItem {
             active: settingsStateView.state == "Node"
             text: qsTr("Node") + translationManager.emptyString
             visible: appWindow.walletMode >= 2
             onSelected: settingsStateView.state = "Node"
         }
-        MoneroComponents.NavbarItem {
+        WildstacksComponents.NavbarItem {
             active: settingsStateView.state == "Log"
             text: qsTr("Log") + translationManager.emptyString
             onSelected: settingsStateView.state = "Log"
         }
-        MoneroComponents.NavbarItem {
+        WildstacksComponents.NavbarItem {
             active: settingsStateView.state == "Info"
             text: qsTr("Info") + translationManager.emptyString
             onSelected: settingsStateView.state = "Info"

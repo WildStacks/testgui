@@ -30,9 +30,9 @@ import QtQuick 2.9
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
-import moneroComponents.NetworkType 1.0
+import wildstacksComponents.NetworkType 1.0
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 Rectangle {
     id: wizardHome
@@ -63,18 +63,18 @@ Rectangle {
                 WizardHeader {
                     Layout.bottomMargin: 7
                     Layout.fillWidth: true
-                    title: qsTr("Welcome to Monero") + translationManager.emptyString
+                    title: qsTr("Welcome to WildStacks") + translationManager.emptyString
                     subtitle: ""
                 }
 
-                MoneroComponents.LanguageButton {
+                WildstacksComponents.LanguageButton {
                     Layout.bottomMargin: 8
                 }
             }
 
             WizardMenuItem {
                 headerText: qsTr("Create a new wallet") + translationManager.emptyString
-                bodyText: qsTr("Choose this option if this is your first time using Monero.") + translationManager.emptyString
+                bodyText: qsTr("Choose this option if this is your first time using WildStacks.") + translationManager.emptyString
                 imageIcon: "qrc:///images/create-wallet.png"
 
                 onMenuClicked: {
@@ -89,13 +89,13 @@ Rectangle {
                 Layout.topMargin: 3
                 Layout.bottomMargin: 3
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
                 headerText: qsTr("Create a new wallet from hardware") + translationManager.emptyString
-                bodyText: qsTr("Connect your hardware wallet to create a new Monero wallet.") + translationManager.emptyString
+                bodyText: qsTr("Connect your hardware wallet to create a new WildStacks wallet.") + translationManager.emptyString
                 imageIcon: "qrc:///images/restore-wallet-from-hardware.png"
 
                 onMenuClicked: {
@@ -109,8 +109,8 @@ Rectangle {
                 Layout.topMargin: 3
                 Layout.bottomMargin: 3
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -128,8 +128,8 @@ Rectangle {
                 Layout.topMargin: 3
                 Layout.bottomMargin: 3
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -148,7 +148,7 @@ Rectangle {
                 Layout.topMargin: 16
                 spacing: 20
 
-                MoneroComponents.StandardButton {
+                WildstacksComponents.StandardButton {
                     small: true
                     text: qsTr("Change wallet mode") + translationManager.emptyString
 
@@ -159,7 +159,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.CheckBox2 {
+            WildstacksComponents.CheckBox2 {
                 id: showAdvancedCheckbox
                 Layout.topMargin: 30
                 Layout.fillWidth: true
@@ -183,7 +183,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.topMargin: 10
 
-                MoneroComponents.StandardDropdown {
+                WildstacksComponents.StandardDropdown {
                     id: networkTypeDropdown
                     currentIndex: persistentSettings.nettype
                     dataModel: networkTypeModel
@@ -204,7 +204,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.LineEdit {
+                WildstacksComponents.LineEdit {
                     id: kdfRoundsText
                     Layout.maximumWidth: 180
 

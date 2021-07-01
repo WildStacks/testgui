@@ -32,7 +32,7 @@ import QtQuick.Controls 2.0
 import FontAwesome 1.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 ColumnLayout {
     id: root
@@ -86,7 +86,7 @@ ColumnLayout {
         subtitle: qsTr("This password cannot be recovered. If you forget it then the wallet will have to be restored from your %1.").arg(!wizardController.walletOptionsIsRecoveringFromDevice ? qsTr("25 word mnemonic seed") : qsTr("hardware wallet"))+ translationManager.emptyString
     }
 
-    MoneroComponents.WarningBox {
+    WildstacksComponents.WarningBox {
         text: "<b>%1</b> (%2).".arg(qsTr("Enter a strong password")).arg(qsTr("Using letters, numbers, and/or symbols")) + translationManager.emptyString
     }
 
@@ -100,10 +100,10 @@ ColumnLayout {
             id: progressText
             Layout.topMargin: 6
             Layout.bottomMargin: 6
-            font.family: MoneroComponents.Style.fontMedium.name
+            font.family: WildstacksComponents.Style.fontMedium.name
             font.pixelSize: 14
             font.bold: false
-            color: MoneroComponents.Style.defaultFontColor
+            color: WildstacksComponents.Style.defaultFontColor
             height: 18
             passwordCharacter: "*"
         }
@@ -114,7 +114,7 @@ ColumnLayout {
             Layout.preferredHeight: 8
 
             radius: 8
-            color: MoneroComponents.Style.progressBarBackgroundColor
+            color: WildstacksComponents.Style.progressBarBackgroundColor
 
             Rectangle {
                 id: fillRect
@@ -125,11 +125,11 @@ ColumnLayout {
                 property int maxWidth: bar.width
                 width: (maxWidth * root.passwordFill) / 100
                 radius: 8
-                color: MoneroComponents.Style.orange
+                color: WildstacksComponents.Style.orange
             }
 
             Rectangle {
-                color: MoneroComponents.Style.defaultFontColor
+                color: WildstacksComponents.Style.defaultFontColor
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.leftMargin: 8
@@ -137,7 +137,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.LineEdit {
+    WildstacksComponents.LineEdit {
         id: passwordInput
         Layout.fillWidth: true
         KeyNavigation.tab: passwordInputConfirm
@@ -149,7 +149,7 @@ ColumnLayout {
         text: walletOptionsPassword
     }
 
-    MoneroComponents.LineEdit {
+    WildstacksComponents.LineEdit {
         id: passwordInputConfirm
         Layout.fillWidth: true
         Layout.topMargin: 8

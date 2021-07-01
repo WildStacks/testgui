@@ -33,7 +33,7 @@ import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 GridLayout {
     id: grid
@@ -60,7 +60,7 @@ GridLayout {
         walletName.text = defaultAccountName;
     }
 
-    MoneroComponents.LineEdit {
+    WildstacksComponents.LineEdit {
         id: walletName
         Layout.preferredWidth: grid.width/3
 
@@ -81,7 +81,7 @@ GridLayout {
         Component.onCompleted: walletName.error = !walletName.verify();
     }
 
-    MoneroComponents.LineEdit {
+    WildstacksComponents.LineEdit {
         id: walletLocation
         Layout.preferredWidth: grid.width/3
 
@@ -94,7 +94,7 @@ GridLayout {
             walletLocation.error = walletLocation.text === "";
         }
 
-        MoneroComponents.InlineButton {
+        WildstacksComponents.InlineButton {
             small: true
             text: qsTr("Browse") + translationManager.emptyString
             onClicked: {

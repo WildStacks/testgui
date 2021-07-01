@@ -32,7 +32,7 @@ import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 ColumnLayout {
     property alias header: key.text
@@ -50,7 +50,7 @@ ColumnLayout {
             Layout.preferredHeight: 20
             color: "transparent"
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 id: key
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
@@ -64,7 +64,7 @@ ColumnLayout {
             Layout.preferredHeight: 20
             color: "transparent"
 
-            MoneroComponents.TextBlock {
+            WildstacksComponents.TextBlock {
                 id: val
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
@@ -79,7 +79,7 @@ ColumnLayout {
         Layout.topMargin: 2
         Layout.bottomMargin: 2
         Layout.fillWidth: true
-        color: MoneroComponents.Style.dividerColor
-        opacity: MoneroComponents.Style.dividerOpacity
+        color: WildstacksComponents.Style.dividerColor
+        opacity: WildstacksComponents.Style.dividerOpacity
     }
 }

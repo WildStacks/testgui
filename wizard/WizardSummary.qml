@@ -29,11 +29,11 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
-import moneroComponents.NetworkType 1.0
+import wildstacksComponents.NetworkType 1.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 ColumnLayout {
     Layout.fillWidth: true

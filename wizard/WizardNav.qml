@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 RowLayout {
     id: menuNav
@@ -66,7 +66,7 @@ RowLayout {
         Layout.preferredHeight: parent.height
         color: "transparent"
 
-        MoneroComponents.StandardButton {
+        WildstacksComponents.StandardButton {
             id: btnPrev
             small: true
             text: menuNav.btnPrevText
@@ -99,7 +99,7 @@ RowLayout {
                 implicitHeight: 10
                 radius: 10
                 // @TODO: Qt 5.10+ replace === with <=
-                color: index === menuNav.progress ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.progressBarBackgroundColor
+                color: index === menuNav.progress ? WildstacksComponents.Style.defaultFontColor : WildstacksComponents.Style.progressBarBackgroundColor
             }
         }
     }
@@ -108,7 +108,7 @@ RowLayout {
         Layout.preferredHeight: parent.height
         color: "transparent"
 
-        MoneroComponents.StandardButton {
+        WildstacksComponents.StandardButton {
             id: btnNext
             small: true
             text: menuNav.btnNextText

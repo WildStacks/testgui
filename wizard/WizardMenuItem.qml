@@ -32,7 +32,7 @@ import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.0
 
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 RowLayout {
     id: rowlayout
@@ -50,7 +50,7 @@ RowLayout {
         Layout.preferredWidth: 70
         Layout.preferredHeight: 70
 
-        MoneroComponents.CheckBox {
+        WildstacksComponents.CheckBox {
             id: checkboxItem
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -60,14 +60,14 @@ RowLayout {
 
         Image {
             id: icon
-            visible: !rowlayout.checkbox && (!isOpenGL || MoneroComponents.Style.blackTheme)
+            visible: !rowlayout.checkbox && (!isOpenGL || WildstacksComponents.Style.blackTheme)
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             source: ""
         }
 
         DropShadow {
-            visible: !rowlayout.checkbox && (isOpenGL && !MoneroComponents.Style.blackTheme)
+            visible: !rowlayout.checkbox && (isOpenGL && !WildstacksComponents.Style.blackTheme)
             anchors.fill: icon
             horizontalOffset: 3
             verticalOffset: 3
@@ -92,15 +92,15 @@ RowLayout {
         Layout.fillWidth: true
         spacing: 0
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: header
             Layout.fillWidth: true
             leftPadding: parent.leftPadding
             topPadding: 0
-            color: MoneroComponents.Style.defaultFontColor
-            opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+            color: WildstacksComponents.Style.defaultFontColor
+            opacity: WildstacksComponents.Style.blackTheme ? 1.0 : 0.8
             font.bold: true
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WildstacksComponents.Style.fontRegular.name
             font.pixelSize: {
                 if(wizardController.layoutScale === 2 ){
                     return 22;
@@ -118,11 +118,11 @@ RowLayout {
             }
         }
 
-        MoneroComponents.TextPlain {
+        WildstacksComponents.TextPlain {
             id: body
             Layout.fillWidth: true
-            color: MoneroComponents.Style.dimmedFontColor
-            font.family: MoneroComponents.Style.fontRegular.name
+            color: WildstacksComponents.Style.dimmedFontColor
+            font.family: WildstacksComponents.Style.fontRegular.name
             font.pixelSize: {
                 if(wizardController.layoutScale === 2 ){
                     return 16;

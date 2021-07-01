@@ -34,20 +34,20 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.2
 import QtQuick.Dialogs 1.2
-import moneroComponents.Wallet 1.0
+import wildstacksComponents.Wallet 1.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Windows.js" as Windows
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WildstacksComponents
+import "../components/effects/" as WildstacksEffects
 import "../pages"
 
 Rectangle {
     id: wizardController
     anchors.fill: parent
 
-    signal useMoneroClicked()
+    signal useWildstacksClicked()
     signal walletCreatedFromDevice(bool success)
 
     function restart() {
@@ -233,15 +233,15 @@ Rectangle {
             }
         ]
 
-        MoneroEffects.GradientBackground {
+        WildstacksEffects.GradientBackground {
             anchors.fill: parent
-            fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-            initialStartColor: MoneroComponents.Style.wizardBackgroundGradientStart
-            initialStopColor: MoneroComponents.Style.middlePanelBackgroundGradientStop
-            blackColorStart: MoneroComponents.Style._b_wizardBackgroundGradientStart
-            blackColorStop: MoneroComponents.Style._b_middlePanelBackgroundGradientStop
-            whiteColorStart: MoneroComponents.Style._w_wizardBackgroundGradientStart
-            whiteColorStop: MoneroComponents.Style._w_middlePanelBackgroundGradientStop
+            fallBackColor: WildstacksComponents.Style.middlePanelBackgroundColor
+            initialStartColor: WildstacksComponents.Style.wizardBackgroundGradientStart
+            initialStopColor: WildstacksComponents.Style.middlePanelBackgroundGradientStop
+            blackColorStart: WildstacksComponents.Style._b_wizardBackgroundGradientStart
+            blackColorStop: WildstacksComponents.Style._b_middlePanelBackgroundGradientStop
+            whiteColorStart: WildstacksComponents.Style._w_wizardBackgroundGradientStart
+            whiteColorStop: WildstacksComponents.Style._w_middlePanelBackgroundGradientStop
             start: Qt.point(0, 0)
             end: Qt.point(height, width)
         }

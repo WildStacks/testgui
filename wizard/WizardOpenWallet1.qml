@@ -32,13 +32,13 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import Qt.labs.folderlistmodel 2.1
-import moneroComponents.NetworkType 1.0
-import moneroComponents.WalletKeysFilesModel 1.0
+import wildstacksComponents.NetworkType 1.0
+import wildstacksComponents.WalletKeysFilesModel 1.0
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WildstacksComponents
+import "../components/effects/" as WildstacksEffects
 
 Rectangle {
     id: wizardOpenWallet1
@@ -80,10 +80,10 @@ Rectangle {
                 columnSpacing: 20
                 columns: 2
 
-                MoneroComponents.TextPlain {
+                WildstacksComponents.TextPlain {
                     Layout.fillWidth: true
                     text: qsTr("Recently opened") + ":" + translationManager.emptyString
-                    font.family: MoneroComponents.Style.fontLight.name
+                    font.family: WildstacksComponents.Style.fontLight.name
                     font.pixelSize: 16
                 }
 
@@ -144,13 +144,13 @@ Rectangle {
                             height: 1
                             width: parent.width
                             anchors.top: parent.top
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: WildstacksComponents.Style.appWindowBorderColor
                             visible: index <= 2  // top row
 
-                            MoneroEffects.ColorTransition {
+                            WildstacksEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+                                whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -174,13 +174,13 @@ Rectangle {
                                     source: "qrc:///images/open-wallet-from-file.png"
                                     visible: {
                                         if(!isOpenGL) return true;
-                                        if(MoneroComponents.Style.blackTheme) return true;
+                                        if(WildstacksComponents.Style.blackTheme) return true;
                                         return false;
                                     }
                                 }
 
                                 Colorize {
-                                    visible: isOpenGL && !MoneroComponents.Style.blackTheme
+                                    visible: isOpenGL && !WildstacksComponents.Style.blackTheme
                                     anchors.fill: icon
                                     source: icon
                                     lightness: 0.65 // +65%
@@ -210,8 +210,8 @@ Rectangle {
                                     Layout.preferredHeight: 26
                                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                     Layout.fillWidth: true
-                                    font.family: MoneroComponents.Style.fontRegular.name
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    font.family: WildstacksComponents.Style.fontRegular.name
+                                    color: WildstacksComponents.Style.defaultFontColor
                                     font.pixelSize: 16
 
                                     wrapMode: Text.WordWrap
@@ -226,8 +226,8 @@ Rectangle {
                                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                     Layout.fillWidth: true
                                     text: item.networkType
-                                    font.family: MoneroComponents.Style.fontRegular.name
-                                    color: MoneroComponents.Style.dimmedFontColor
+                                    font.family: WildstacksComponents.Style.fontRegular.name
+                                    color: WildstacksComponents.Style.dimmedFontColor
                                     font.pixelSize: 14
 
                                     wrapMode: Text.WordWrap
@@ -246,13 +246,13 @@ Rectangle {
                         Rectangle {
                             height: 1
                             width: parent.width
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: WildstacksComponents.Style.appWindowBorderColor
                             anchors.bottom: parent.bottom
 
-                            MoneroEffects.ColorTransition {
+                            WildstacksEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: WildstacksComponents.Style._b_appWindowBorderColor
+                                whiteColor: WildstacksComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -262,7 +262,7 @@ Rectangle {
                             cursorShape: Qt.PointingHandCursor
 
                             onEntered: {
-                                parent.color = MoneroComponents.Style.titleBarButtonHoverColor;
+                                parent.color = WildstacksComponents.Style.titleBarButtonHoverColor;
                             }
                             onExited: {
                                 parent.color = "transparent";

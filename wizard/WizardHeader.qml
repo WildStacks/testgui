@@ -28,7 +28,7 @@
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.2
@@ -44,9 +44,9 @@ ColumnLayout {
     Text {
         text: title
         Layout.fillWidth: true
-        font.family: MoneroComponents.Style.fontRegular.name
-        color: MoneroComponents.Style.defaultFontColor
-        opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+        font.family: WildstacksComponents.Style.fontRegular.name
+        color: WildstacksComponents.Style.defaultFontColor
+        opacity: WildstacksComponents.Style.blackTheme ? 1.0 : 0.8
         font.pixelSize: {
             if(wizardController.layoutScale === 2 ){
                 return 34;
@@ -66,10 +66,10 @@ ColumnLayout {
         Layout.alignment: Qt.AlignCenter
         visible: parent.subtitle !== ""
 
-        color: MoneroComponents.Style.dimmedFontColor
+        color: WildstacksComponents.Style.dimmedFontColor
         text: subtitle
 
-        font.family: MoneroComponents.Style.fontRegular.name
+        font.family: WildstacksComponents.Style.fontRegular.name
         font.pixelSize: {
             if(wizardController.layoutScale === 2 ){
                 return 16;

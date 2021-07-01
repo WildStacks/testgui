@@ -32,7 +32,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WildstacksComponents
 
 Rectangle {
     id: wizardModeSelection1
@@ -101,8 +101,8 @@ Rectangle {
                 Layout.topMargin: 5
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -130,8 +130,8 @@ Rectangle {
                 Layout.topMargin: 5
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WildstacksComponents.Style.dividerColor
+                opacity: WildstacksComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -154,7 +154,7 @@ Rectangle {
             WizardMenuItem {
                 Layout.topMargin: 20
                 headerText: qsTr("Portable mode") + translationManager.emptyString
-                bodyText: qsTr("Create portable wallets and use them on any PC. Enable if you installed Monero on a USB stick, an external drive, or any other portable storage medium.") + translationManager.emptyString
+                bodyText: qsTr("Create portable wallets and use them on any PC. Enable if you installed WildStacks on a USB stick, an external drive, or any other portable storage medium.") + translationManager.emptyString
                 checkbox: true
                 checked: wizardModeSelection1.portable
 

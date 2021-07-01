@@ -2126,8 +2126,8 @@ Você pode alterar a senha nas configurações da carteira.</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="342"/>
-        <source>Enter the WildStacks Address (example: 44AFFq5kSiGBoZ...)</source>
-        <translation>Escreva o endereço WildStacks (exemplo: 44AFFq5kSiGBoZ...)</translation>
+        <source>Enter the WildStacks Address (example: WsaAFFq5kSiGBoZ...)</source>
+        <translation>Escreva o endereço WildStacks (exemplo: WsaAFFq5kSiGBoZ...)</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="352"/>

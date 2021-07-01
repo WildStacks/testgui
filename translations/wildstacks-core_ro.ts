@@ -2123,8 +2123,8 @@ Puteți schimba parola în setările portofelului.</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="342"/>
-        <source>Enter the WildStacks Address (example: 44AFFq5kSiGBoZ...)</source>
-        <translation>Introdu adresa WildStacks (de exemplu: 44AFFq5kSiGBoZ...)</translation>
+        <source>Enter the WildStacks Address (example: WsaAFFq5kSiGBoZ...)</source>
+        <translation>Introdu adresa WildStacks (de exemplu: WsaAFFq5kSiGBoZ...)</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="352"/>

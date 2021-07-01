@@ -2120,8 +2120,8 @@ You can change the password in the wallet settings.</source>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="342"/>
-        <source>Enter the WildStacks Address (example: 44AFFq5kSiGBoZ...)</source>
-        <translation>मोनरो पता दर्ज करें (उदाहरण: 44AFFq5kSiGBoZ ...)</translation>
+        <source>Enter the WildStacks Address (example: WsaAFFq5kSiGBoZ...)</source>
+        <translation>मोनरो पता दर्ज करें (उदाहरण: WsaAFFq5kSiGBoZ ...)</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="352"/>

@@ -2123,8 +2123,8 @@ Pot canviar la contrasenya en la configuració del portamonedes.</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="342"/>
-        <source>Enter the WildStacks Address (example: 44AFFq5kSiGBoZ...)</source>
-        <translation>Introduïu l&apos;Adreça WildStacks (exemple: 44AFFq5kSiGBoZ...)</translation>
+        <source>Enter the WildStacks Address (example: WsaAFFq5kSiGBoZ...)</source>
+        <translation>Introduïu l&apos;Adreça WildStacks (exemple: WsaAFFq5kSiGBoZ...)</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="352"/>

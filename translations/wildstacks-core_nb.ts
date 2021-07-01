@@ -2123,8 +2123,8 @@ Du kan endre passordet i lommebok-innstillingene.</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="342"/>
-        <source>Enter the WildStacks Address (example: 44AFFq5kSiGBoZ...)</source>
-        <translation>Legg inn WildStacks-adressen (f.eks.: 44AFFq5kSiGBoZ...)</translation>
+        <source>Enter the WildStacks Address (example: WsaAFFq5kSiGBoZ...)</source>
+        <translation>Legg inn WildStacks-adressen (f.eks.: WsaAFFq5kSiGBoZ...)</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="352"/>

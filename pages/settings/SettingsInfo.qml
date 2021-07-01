@@ -97,7 +97,7 @@ Rectangle {
             MoneroComponents.TextBlock {
                 id: guiMoneroVersion
                 font.pixelSize: 14
-                text: qsTr("Embedded Monero version: ") + translationManager.emptyString
+                text: qsTr("Embedded WildStacks version: ") + translationManager.emptyString
             }
 
             MoneroComponents.TextBlock {
@@ -384,7 +384,7 @@ Rectangle {
                 onClicked: {
                     var data = "";
                     data += "GUI version: " + Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")";
-                    data += "\nEmbedded Monero version: " + moneroVersion;
+                    data += "\nEmbedded WildStacks version: " + moneroVersion;
                     data += "\nWallet path: " + walletLocation.walletPath;
 
                     data += "\nWallet restore height: ";
@@ -405,9 +405,9 @@ Rectangle {
 
             MoneroComponents.StandardButton {
                 small: true
-                text: qsTr("Donate to Monero") + translationManager.emptyString
+                text: qsTr("Donate to WildStacks") + translationManager.emptyString
                 onClicked: {
-                    middlePanel.sendTo("888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H", "", "Donation to Monero Core Team");
+                    middlePanel.sendTo("888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H", "", "Donation to WildStacks Core Team");
                 }
             }
         }

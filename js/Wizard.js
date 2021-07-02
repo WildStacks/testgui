@@ -122,13 +122,13 @@ function restoreWalletCheckViewSpendAddress(walletmanager, nettype, viewkey, spe
 //returns estimated block height with 1 month buffer prior to requested date.
 function getApproximateBlockchainHeight(_date, _nettype){
     // time of wildstacks birth 2014-04-18 10:49:53 (1397818193)
-    var wildstacksBirthTime = _nettype == "Mainnet" ? 1625170677 : _nettype == "Testnet" ? 1410295020 : 1518932025;
+    var wildstacksBirthTime = _nettype == "Mainnet" ? 1625170677 : _nettype == "Testnet" ? 1625160677 : 1624170677;
     // avg seconds per block in v1
     var secondsPerBlockV1 = 60;
     // time of v2 fork 2016-03-23 15:57:38 (1458748658)
-    var forkTime = _nettype == "Mainnet" ? 1625170679 : _nettype == "Testnet" ? 1448285909 : 1520937818;
+    var forkTime = _nettype == "Mainnet" ? 1625170679 : _nettype == "Testnet" ? 1625170669 : 1625170659;
     // v2 fork block
-    var forkBlock = _nettype == "Mainnet" ? 3 : _nettype == "Testnet" ? 624634 : 32000;
+    var forkBlock = _nettype == "Mainnet" ? 3 : _nettype == "Testnet" ? 3 : 3;
     // avg seconds per block in V2
     var secondsPerBlockV2 = 60;
     // time in UTC
@@ -155,7 +155,7 @@ function getApproximateBlockchainHeight(_date, _nettype){
 
     if(_nettype == "Testnet"){
         // testnet got some huge rollbacks, so the estimation is way off
-        var approximateTestnetRolledBackBlocks = 342100;
+        var approximateTestnetRolledBackBlocks = 1;
         if(approxBlockchainHeight > approximateTestnetRolledBackBlocks)
             approxBlockchainHeight -= approximateTestnetRolledBackBlocks
     }

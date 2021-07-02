@@ -230,7 +230,7 @@ Rectangle {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
                         } else {
-                            return "WSTS "
+                            return "WSTS"
                         }
                     }
                     color: WildstacksComponents.Style.blackTheme ? "white" : "black"
@@ -253,7 +253,7 @@ Rectangle {
                     id: balancePart1
                     themeTransition: false
                     anchors.left: parent.left
-                    anchors.leftMargin: 58
+                    anchors.leftMargin: 68
                     anchors.baseline: currencyLabel.baseline
                     color: WildstacksComponents.Style.blackTheme ? "white" : "black"
                     Binding on color {

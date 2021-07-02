@@ -230,7 +230,7 @@ Rectangle {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
                         } else {
-                            return "WSTS"
+                            return "WSTS "
                         }
                     }
                     color: WildstacksComponents.Style.blackTheme ? "white" : "black"

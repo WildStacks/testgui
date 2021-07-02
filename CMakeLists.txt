@@ -3,9 +3,9 @@ project(wildstacks-gui)
 
 message(STATUS "Initiating compile using CMake ${CMAKE_VERSION}")
 
-set(VERSION_MAJOR "17")
-set(VERSION_MINOR "2")
-set(VERSION_REVISION "2")
+set(VERSION_MAJOR "1")
+set(VERSION_MINOR "0")
+set(VERSION_REVISION "0")
 set(VERSION "0.${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}")
 
 option(STATIC "Link libraries statically, requires static Qt")
@@ -75,7 +75,7 @@ if(STATIC)
   set(Boost_USE_STATIC_LIBS ON)
   set(Boost_USE_STATIC_RUNTIME ON)
   set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ${CMAKE_FIND_LIBRARY_SUFFIXES})
-  add_definitions(-DMONERO_GUI_STATIC)
+  add_definitions(-DWILDSTACKS_GUI_STATIC)
 endif()
 
 # Include password strength library
@@ -89,22 +89,22 @@ include(CMakePackageConfigHelpers)
 
 # force version update
 function (wildstacks_gui_add_library_with_deps)
-  cmake_parse_arguments(MONERO_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
-  source_group("${MONERO_ADD_LIBRARY_NAME}" FILES ${MONERO_ADD_LIBRARY_SOURCES})
+  cmake_parse_arguments(WILDSTACKS_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
+  source_group("${WILDSTACKS_ADD_LIBRARY_NAME}" FILES ${WILDSTACKS_ADD_LIBRARY_SOURCES})
 
   # Define a ("virtual") object library and an actual library that links those
   # objects together. The virtual libraries can be arbitrarily combined to link
   # any subset of objects into one library archive. This is used for releasing
   # libwallet, which combines multiple components.
-  set(objlib obj_${MONERO_ADD_LIBRARY_NAME})
-  add_library(${objlib} OBJECT ${MONERO_ADD_LIBRARY_SOURCES})
-  add_library("${MONERO_ADD_LIBRARY_NAME}" $<TARGET_OBJECTS:${objlib}>)
-  if (MONERO_ADD_LIBRARY_DEPENDS)
-    add_dependencies(${objlib} ${MONERO_ADD_LIBRARY_DEPENDS})
+  set(objlib obj_${WILDSTACKS_ADD_LIBRARY_NAME})
+  add_library(${objlib} OBJECT ${WILDSTACKS_ADD_LIBRARY_SOURCES})
+  add_library("${WILDSTACKS_ADD_LIBRARY_NAME}" $<TARGET_OBJECTS:${objlib}>)
+  if (WILDSTACKS_ADD_LIBRARY_DEPENDS)
+    add_dependencies(${objlib} ${WILDSTACKS_ADD_LIBRARY_DEPENDS})
   endif()
-  set_property(TARGET "${MONERO_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
+  set_property(TARGET "${WILDSTACKS_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
   target_compile_definitions(${objlib}
-    PRIVATE $<TARGET_PROPERTY:${MONERO_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
+    PRIVATE $<TARGET_PROPERTY:${WILDSTACKS_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
 endfunction ()
 
 function (wildstacks_gui_add_library name)

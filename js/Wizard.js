@@ -122,15 +122,15 @@ function restoreWalletCheckViewSpendAddress(walletmanager, nettype, viewkey, spe
 //returns estimated block height with 1 month buffer prior to requested date.
 function getApproximateBlockchainHeight(_date, _nettype){
     // time of wildstacks birth 2014-04-18 10:49:53 (1397818193)
-    var wildstacksBirthTime = _nettype == "Mainnet" ? 1625170677 : _nettype == "Testnet" ? 1625160677 : 1624170677;
+    var wildstacksBirthTime = _nettype == "Mainnet" ? 1397818193 : _nettype == "Testnet" ? 1410295020 : 1518932025;
     // avg seconds per block in v1
     var secondsPerBlockV1 = 60;
     // time of v2 fork 2016-03-23 15:57:38 (1458748658)
-    var forkTime = _nettype == "Mainnet" ? 1625170679 : _nettype == "Testnet" ? 1625170669 : 1625170659;
+    var forkTime = _nettype == "Mainnet" ? 1458748658 : _nettype == "Testnet" ? 1448285909 : 1520937818;
     // v2 fork block
-    var forkBlock = _nettype == "Mainnet" ? 3 : _nettype == "Testnet" ? 3 : 3;
+    var forkBlock = _nettype == "Mainnet" ? 1009827 : _nettype == "Testnet" ? 624634 : 32000;
     // avg seconds per block in V2
-    var secondsPerBlockV2 = 60;
+    var secondsPerBlockV2 = 120;
     // time in UTC
     var requestedTime = Math.floor(new Date(_date) / 1000);
     var approxBlockchainHeight;
@@ -141,11 +141,11 @@ function getApproximateBlockchainHeight(_date, _nettype){
         return 0;
     }
     // time between during v1
-    if (requestedTime > wildstacksBirthTime && requestedTime < forkTime){
-        approxBlockchainHeight = Math.floor((requestedTime - wildstacksBirthTime)/secondsPerBlockV1);
-        console.log("Calculated blockchain height: " + approxBlockchainHeight );
-        secondsPerBlock = secondsPerBlockV1;
-    }
+//    if (requestedTime > wildstacksBirthTime && requestedTime < forkTime){
+//        approxBlockchainHeight = Math.floor((requestedTime - wildstacksBirthTime)/secondsPerBlockV1);
+//        console.log("Calculated blockchain height: " + approxBlockchainHeight );
+//        secondsPerBlock = secondsPerBlockV1;
+//    }
     // time is during V2
     else{
         approxBlockchainHeight =  Math.floor(forkBlock + (requestedTime - forkTime)/secondsPerBlockV2);

@@ -407,7 +407,7 @@ Rectangle {
                 small: true
                 text: qsTr("Donate to WildStacks") + translationManager.emptyString
                 onClicked: {
-                    middlePanel.sendTo("888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H", "", "Donation to WildStacks Core Team");
+                    middlePanel.sendTo("WsaqAzkXRCsUVuYe6PqAmA2s3i7USreHVFbnCzS3LT1NXjQpuj69MRygEjYU3eYHysGodNskuGNRRRiJeL9RZay22FDsmsZgWy", "", "Donation to WildStacks Core Team");
                 }
             }
         }
